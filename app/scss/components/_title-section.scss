@@ -1,0 +1,14 @@
+.title-section {
+  color: $white;
+  font-size: 60px;
+  font-weight: 700;
+  letter-spacing: -1.2px;
+
+  span {
+    color: $accent;
+  }
+
+  &.center {
+    text-align: center;
+  }
+}

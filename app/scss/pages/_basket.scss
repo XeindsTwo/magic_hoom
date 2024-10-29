@@ -1,0 +1,187 @@
+.basket {
+  padding-top: 64px;
+
+  &:last-child {
+    padding-bottom: 30px;
+  }
+
+  &__title {
+    font-size: 60px;
+    font-weight: 500;
+    max-width: 870px;
+    color: $white;
+    line-height: 1.1;
+    margin-bottom: 70px;
+  }
+
+  &__head {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    font-size: 24px;
+    margin-bottom: 32px;
+
+    p:nth-child(2) {
+      text-align: center;
+    }
+
+    p:last-child {
+      text-align: right;
+    }
+  }
+
+  &__items {
+    @include flex-column(12);
+    margin-bottom: 32px;
+  }
+
+  &__item {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    border-radius: 8px;
+    background-color: $black100;
+    padding: 30px 26px;
+
+    &.border-top {
+      margin-top: 32px;
+    }
+  }
+
+  &__line {
+    width: 100%;
+    height: 3px;
+    background-color: rgba($white300, .06);
+  }
+
+  &__name {
+    font-size: 24px;
+    color: $white;
+  }
+
+  &__quantity {
+    @include flex-align-center(20);
+    justify-content: center;
+  }
+
+  &__btn {
+    @include flex-center;
+    width: 32px;
+    height: 32px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    transition: background-color .4s, border .4s;
+
+    &:hover {
+      svg path {
+        stroke: $accent;
+      }
+    }
+
+    &:focus {
+      border-color: $accent;
+
+      svg path {
+        stroke: $accent;
+      }
+    }
+  }
+
+  &__input {
+    width: 40px;
+    text-align: center;
+    color: $white;
+  }
+
+  &__price {
+    margin-left: auto;
+    font-size: 24px;
+    font-weight: 500;
+    color: $white;
+  }
+
+  &__order {
+    @include flex-center;
+    padding: 17px 28px;
+    border-radius: 10px;
+    margin-left: auto;
+    margin-top: 32px;
+    border: 1px solid transparent;
+    background-color: $white;
+    transition: background-color .4s, color .4s;
+
+    &:hover {
+      background-color: transparent;
+      border-color: $white;
+      color: $white;
+    }
+
+    &:focus {
+      background-color: $accent;
+      border-color: transparent;
+      color: $black;
+    }
+
+    &.top {
+      margin-top: 50px;
+    }
+  }
+
+  &__subtext {
+    margin-bottom: 20px;
+    font-size: 24px;
+  }
+
+  &__methods {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 20px;
+  }
+
+  &__method {
+    @include flex-align-center(24);
+    align-items: flex-start;
+    padding: 24px;
+    background-color: #181818;
+    border-radius: 12px;
+    cursor: pointer;
+    border: 1px solid transparent;
+    transition: background-color .4s, border .4s;
+
+    &.active {
+      border-color: $accent
+    }
+
+    &-name {
+      display: flex;
+      color: $white;
+      margin: 9px 0 25px;
+      font-size: 26px;
+      font-weight: 500;
+    }
+  }
+
+  &__img {
+    @include objectCoverBg;
+    border-radius: 50%;
+  }
+
+  &__form {
+    @include flex-column(14);
+    margin-bottom: 80px;
+
+    &-item {
+      @include flex-align-center(30);
+      position: relative;
+
+      input {
+        padding-right: 66px;
+      }
+
+      svg {
+        width: 30px;
+        height: 30px;
+        position: absolute;
+        right: 25px;
+      }
+    }
+  }
+}

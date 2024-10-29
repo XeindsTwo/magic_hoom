@@ -1,0 +1,14 @@
+@include('components/_head.html', {
+title: 'МагическийДом | Ароматные свечи'
+})
+
+@include('components/_header.html')
+<main class="main">
+  <img class="home__img" src="images/home.png" height="850" alt="">
+  @include('home/_home.html')
+  @include('home/_catalog.html')
+  @include('home/_about.html')
+</main>
+@include('components/_footer.html')
+<script src="js/phone-mask.js" type="module"></script>
+<script src="js/main.min.js" type="module"></script>

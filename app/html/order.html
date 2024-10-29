@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html class="html html--min-height" lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta http-equiv="content-type" content="public, max-age=3600">
+  <meta name="theme-color" content="#fff">
+  <title>Корзина товаров</title>
+  <link rel="shortcut icon" href="images/icons/favicon.svg" type="image/x-icon">
+  <link rel="stylesheet" href="css/style.min.css">
+</head>
+<body class="body body--height">
+
+@include('components/_header-dop.html')
+<main class="main main--100vh">
+  <section class="basket">
+    <div class="container">
+      <h1 class="basket__title">Корзина</h1>
+      <div class="basket__table">
+        <div class="basket__head">
+          <p>Наименование товара</p>
+          <p>Колличество</p>
+          <p>Общая стоимость</p>
+        </div>
+        <ul class="basket__items">
+          <li class="basket__item">
+            <p class="basket__name">Свеча Леший</p>
+            <div class="basket__quantity">
+              <button class="basket__btn minus" type="button">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="3" viewBox="0 0 24 3" fill="none">
+                  <path d="M0 1.5H24" stroke="#999DA3" stroke-width="3"/>
+                </svg>
+              </button>
+              <label>
+                <input class="basket__input" type="text" value="1" placeholder="0" id="quantity" name="quantity">
+              </label>
+              <button class="basket__btn plus" type="button">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25" fill="none">
+                  <path d="M0 12.5H24M12 0.5L12 24.5" stroke="#999DA3" stroke-width="3"/>
+                </svg>
+              </button>
+            </div>
+            <span class="basket__price">15 500 ₽</span>
+          </li>
+          <li class="basket__item">
+            <p class="basket__name">Свеча Тотем-Ворон</p>
+            <div class="basket__quantity">
+              <button class="basket__btn minus" type="button">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="3" viewBox="0 0 24 3" fill="none">
+                  <path d="M0 1.5H24" stroke="#999DA3" stroke-width="3"/>
+                </svg>
+              </button>
+              <label>
+                <input class="basket__input" type="text" value="1" placeholder="0" id="quantity" name="quantity">
+              </label>
+              <button class="basket__btn plus" type="button">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25" fill="none">
+                  <path d="M0 12.5H24M12 0.5L12 24.5" stroke="#999DA3" stroke-width="3"/>
+                </svg>
+              </button>
+            </div>
+            <span class="basket__price">2 500 ₽</span>
+          </li>
+        </ul>
+        <div class="basket__line"></div>
+        <div class="basket__item border-top">
+          <p class="basket__name">Итого</p>
+          <div></div>
+          <span class="basket__price">18 000 ₽</span>
+        </div>
+      </div>
+      <button class="basket__order" type="button">Перейти к оформлению</button>
+    </div>
+  </section>
+  <section class="basket">
+    <div class="container">
+      <h1 class="basket__title">Данные для получения</h1>
+      <form action="">
+        <ul class="basket__form">
+          <li>
+            <label class="basket__form-item">
+              <input class="input" id="fio" name="fio" type="text" maxlength="255" placeholder="Ваше ФИО">
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
+                <path
+                    d="M22 29.5V26.5C22 24.9087 21.3679 23.3826 20.2426 22.2574C19.1174 21.1321 17.5913 20.5 16 20.5H7C5.4087 20.5 3.88258 21.1321 2.75736 22.2574C1.63214 23.3826 1 24.9087 1 26.5V29.5"
+                    stroke="white" stroke-width="3.33333" stroke-linecap="round" stroke-linejoin="round"/>
+                <path
+                    d="M11.5 14.5C14.8137 14.5 17.5 11.8137 17.5 8.5C17.5 5.18629 14.8137 2.5 11.5 2.5C8.18629 2.5 5.5 5.18629 5.5 8.5C5.5 11.8137 8.18629 14.5 11.5 14.5Z"
+                    stroke="white" stroke-width="3.33333" stroke-linecap="round" stroke-linejoin="round"/>
+                <path
+                    d="M31 29.5001V26.5001C30.999 25.1707 30.5565 23.8792 29.742 22.8285C28.9276 21.7779 27.7872 21.0274 26.5 20.6951"
+                    stroke="white" stroke-width="3.33333" stroke-linecap="round" stroke-linejoin="round"/>
+                <path
+                    d="M22 2.69507C23.2906 3.02552 24.4346 3.77612 25.2515 4.82853C26.0684 5.88095 26.5118 7.17531 26.5118 8.50757C26.5118 9.83982 26.0684 11.1342 25.2515 12.1866C24.4346 13.239 23.2906 13.9896 22 14.3201"
+                    stroke="white" stroke-width="3.33333" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </label>
+          </li>
+          <li>
+            <label class="basket__form-item">
+              <input class="input" id="phone" data-tel-input name="phone" type="text" placeholder="Ваш номер телефона">
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
+                <g clip-path="url(#clip0_1_753)">
+                  <path
+                      d="M27.1714 25.7666L26.1361 29.6303C26.0415 29.9894 25.8729 30.3247 25.6411 30.6148C25.4094 30.905 25.1196 31.1435 24.7903 31.3152C24.461 31.4869 24.0995 31.5879 23.729 31.6117C23.3584 31.6356 22.9869 31.5818 22.6383 31.4538C18.7906 29.9613 15.3467 27.587 12.5832 24.5218C10.0012 21.7106 8.06989 18.3655 6.92633 14.7238C5.65002 10.7807 5.32049 6.59246 5.96442 2.49829C6.02766 2.13352 6.16617 1.78592 6.37112 1.47761C6.57606 1.1693 6.84296 0.907043 7.15482 0.707535C7.46667 0.508027 7.81665 0.37564 8.18248 0.318802C8.5483 0.261965 8.92195 0.281922 9.27964 0.377403L13.1433 1.41268C13.77 1.574 14.3167 1.9577 14.6814 2.49224C15.0461 3.02679 15.2039 3.67571 15.1256 4.31805C14.9574 5.59822 14.9345 6.89331 15.0574 8.17862C15.1072 8.68602 15.0104 9.19705 14.7787 9.65116C14.5469 10.1053 14.1898 10.4834 13.7497 10.7408L11.6758 11.9382C12.6453 15.6537 14.5996 19.0388 17.3327 21.7361L19.4066 20.5388C19.8495 20.2863 20.3555 20.1661 20.8647 20.1925C21.3739 20.2188 21.8648 20.3906 22.2793 20.6873C23.331 21.4365 24.464 22.0642 25.6568 22.5586C26.2587 22.8145 26.7457 23.2827 27.0249 23.8742C27.3042 24.4657 27.3563 25.1392 27.1714 25.7666Z"
+                      fill="#F0F5FF"/>
+                </g>
+                <defs>
+                  <clipPath id="clip0_1_753">
+                    <rect width="32" height="32" fill="white"/>
+                  </clipPath>
+                </defs>
+              </svg>
+            </label>
+          </li>
+          <li>
+            <label class="basket__form-item">
+              <input class="input" id="address" name="address" maxlength="255" type="text" placeholder="Адрес">
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="34" viewBox="0 0 32 34" fill="none">
+                <path
+                    d="M28.3332 13.9488C28.3332 21.0222 20.4863 28.3889 17.8513 30.6641C17.6058 30.8486 17.307 30.9485 16.9998 30.9485C16.6927 30.9485 16.3939 30.8486 16.1484 30.6641C13.5134 28.3889 5.6665 21.0222 5.6665 13.9488C5.6665 10.943 6.86055 8.06035 8.98596 5.93494C11.1114 3.80952 13.9941 2.61548 16.9998 2.61548C20.0056 2.61548 22.8883 3.80952 25.0137 5.93494C27.1391 8.06035 28.3332 10.943 28.3332 13.9488Z"
+                    stroke="white" stroke-width="2.61538" stroke-linecap="round" stroke-linejoin="round"/>
+                <path
+                    d="M17 18.4167C19.3472 18.4167 21.25 16.514 21.25 14.1667C21.25 11.8195 19.3472 9.91675 17 9.91675C14.6528 9.91675 12.75 11.8195 12.75 14.1667C12.75 16.514 14.6528 18.4167 17 18.4167Z"
+                    stroke="white" stroke-width="1.96154" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </label>
+          </li>
+          <li>
+            <label class="basket__form-item">
+              <input class="input" id="date" inputmode="numeric" maxlength="10" name="date" type="text"
+                     placeholder="Дата доставки (дд.мм.гггг)">
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
+                <path d="M10.6666 2.66675V8.00008" stroke="white" stroke-width="2.66667" stroke-linecap="round"
+                      stroke-linejoin="round"/>
+                <path d="M21.3334 2.66675V8.00008" stroke="white" stroke-width="2.66667" stroke-linecap="round"
+                      stroke-linejoin="round"/>
+                <path
+                    d="M25.3333 5.33325H6.66667C5.19391 5.33325 4 6.52716 4 7.99992V26.6666C4 28.1393 5.19391 29.3333 6.66667 29.3333H25.3333C26.8061 29.3333 28 28.1393 28 26.6666V7.99992C28 6.52716 26.8061 5.33325 25.3333 5.33325Z"
+                    stroke="white" stroke-width="2.66667" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M4 13.3333H28" stroke="white" stroke-width="2.66667" stroke-linecap="round"
+                      stroke-linejoin="round"/>
+                <path d="M10.6666 18.6667H10.68" stroke="white" stroke-width="2.66667" stroke-linecap="round"
+                      stroke-linejoin="round"/>
+                <path d="M16 18.6667H16.0133" stroke="white" stroke-width="2.66667" stroke-linecap="round"
+                      stroke-linejoin="round"/>
+                <path d="M21.3334 18.6667H21.3467" stroke="white" stroke-width="2.66667" stroke-linecap="round"
+                      stroke-linejoin="round"/>
+                <path d="M10.6666 24H10.68" stroke="white" stroke-width="2.66667" stroke-linecap="round"
+                      stroke-linejoin="round"/>
+                <path d="M16 24H16.0133" stroke="white" stroke-width="2.66667" stroke-linecap="round"
+                      stroke-linejoin="round"/>
+                <path d="M21.3334 24H21.3467" stroke="white" stroke-width="2.66667" stroke-linecap="round"
+                      stroke-linejoin="round"/>
+              </svg>
+            </label>
+          </li>
+        </ul>
+        <div class="basket__delivery">
+          <p class="basket__subtext">Выберите способ доставки нажатием</p>
+          <span class="error">Пожалуйста, выберите способ доставки</span>
+          <ul class="basket__methods">
+            <li class="basket__method" data-choose="yandex">
+              <img class="basket__img" src="images/methods/1.jpg" alt="Яндекс Курьер" width="48" height="48">
+              <div class="basket__info">
+                <span class="basket__method-name">Яндекс Курьер</span>
+                <p class="basket__description">
+                  Курьер привезет товар на дом, в любое удобное для вас время.
+                  Стоимость будет дополнительной.
+                </p>
+              </div>
+            </li>
+            <li class="basket__method" data-choose="mail_russia">
+              <img class="basket__img" src="images/methods/2.jpg" alt="Почта России" width="48" height="48">
+              <div class="basket__info">
+                <span class="basket__method-name">Почта России</span>
+                <p class="basket__description">
+                  Посылку можно будет забрать в любое удобное время в отделии.
+                  Стоимость будет расчитана после.
+                </p>
+              </div>
+            </li>
+            <li class="basket__method" data-choose="self_pickup">
+              <img class="basket__img" src="images/methods/3.jpg" alt="Самовывоз" width="48" height="48">
+              <div class="basket__info">
+                <span class="basket__method-name">Самовывоз</span>
+                <p class="basket__description">
+                  Самовывоз осуществляется по адресу г. Подольск, пос. Быково
+                  Стоимость будет только за товар.
+                </p>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div class="basket__bottom">
+          <button class="basket__order top" type="button">Оформить заказ</button>
+        </div>
+      </form>
+    </div>
+  </section>
+</main>
+<script src="js/phone-mask.js" type="module"></script>
+<script src="js/date-mask.js" type="module"></script>
+<script src="js/order.js" type="module"></script>
+<script src="js/main.min.js" type="module"></script>

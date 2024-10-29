@@ -1,0 +1,30 @@
+.about {
+  &__title {
+    margin-bottom: 50px;
+  }
+
+  &__content {
+    @include flex-column(25);
+    font-size: 26px;
+    color: rgba($white, .7);
+    margin-bottom: 35px;
+
+    p:first-child {
+      color: $white;
+
+      span {
+        font-size: 38px;
+        font-style: italic;
+      }
+    }
+  }
+
+  &__author {
+    font-style: italic;
+    color: $white;
+    font-size: 32px;
+    max-width: 830px;
+    text-align: right;
+    margin-left: auto;
+  }
+}

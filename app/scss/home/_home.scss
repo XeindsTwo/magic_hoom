@@ -1,0 +1,70 @@
+.home {
+  padding-top: 80px;
+
+  &__img {
+    @include objectCoverBg;
+    width: 100%;
+    position: absolute;
+    top: 0;
+
+    &.blur {
+      filter: blur(7.5px);
+    }
+  }
+
+  &__title {
+    font-size: 80px;
+    max-width: 870px;
+    color: $white;
+    line-height: 1.1;
+    margin-bottom: 32px;
+  }
+
+  &__text {
+    font-size: 26px;
+    margin-bottom: 60px;
+  }
+
+  &__actions {
+    @include flex-align-center(18);
+  }
+
+  &__btn {
+    @include flex-center;
+    padding: 20px 40px;
+    font-weight: 500;
+    font-size: 22px;
+    background-color: $white;
+    color: $black;
+    border: 2px solid transparent;
+    transition: background-color .4s, color .4s, border .4s;
+
+    &:hover {
+      background-color: rgba($accent, .8);
+      color: $white;
+    }
+
+    &:focus {
+      background-color: transparent;
+      border-color: $accent;
+      color: $white;
+    }
+
+    &.about {
+      background-color: transparent;
+      border-color: $white;
+      color: $white;
+
+      &:hover {
+        border-color: $accent;
+        color: $accent;
+      }
+
+      &:focus {
+        background-color: rgba($accent, .8);
+        border-color: transparent;
+        color: $white;
+      }
+    }
+  }
+}

@@ -1,0 +1,77 @@
+.footer {
+  margin-top: 70px;
+  border-top: 2px solid rgba($white, .1);
+  padding: 40px 0;
+  @include r($desktop) {
+    padding: 35px 0;
+  }
+  @include r($lg) {
+    padding-bottom: 25px;
+  }
+  @include r($tablet) {
+    padding: 30px 0 20px;
+  }
+
+  &__inner {
+    @include flex-align-center(30);
+  }
+
+  &__logo, &__right {
+    max-width: 237px;
+    width: 100%;
+  }
+
+  &__nav {
+    margin: 0 auto;
+  }
+
+  &__list {
+    @include flex-align-center(30);
+  }
+
+  &__link {
+    font-size: 20px;
+    border-radius: 5px;
+    padding: 1px 2px;
+    border: 1px solid transparent;
+    transition: color .4s, border .4s;
+    @include r($sm) {
+      font-size: 15px;
+    }
+
+    &:hover {
+      color: $accent;
+    }
+
+    &:focus {
+      border-color: $accent;
+      color: $accent;
+    }
+  }
+
+  &__right {
+    @include flex-align-center(25);
+    justify-content: flex-end;
+  }
+
+  &__up {
+    @include flex-align-center(9);
+    color: $white;
+    padding: 1px 2px;
+    border: 1px solid transparent;
+    border-radius: 5px;
+    transition: color .4s, border .4s;
+
+    &:hover {
+      color: $accent;
+
+      svg path {
+        fill: $accent;
+      }
+    }
+
+    &:focus {
+      border-color: $accent;
+    }
+  }
+}
