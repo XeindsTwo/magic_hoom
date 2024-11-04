@@ -9,8 +9,12 @@
   transition: border .4s, background-color .4s;
   color: $white;
   @include r($lg) {
-    padding: 17px 16px;
-    border-radius: 12px;
+    font-size: 18px;
+    padding: 20px 16px;
+    border-radius: 6px;
+  }
+  @include r($sm) {
+    font-size: 16px;
   }
 
   &:hover {

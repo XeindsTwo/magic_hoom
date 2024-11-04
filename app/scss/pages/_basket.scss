@@ -253,6 +253,7 @@
     color: $white;
     @media (max-width: 520px) {
       width: 50px;
+      font-size: 18px;
     }
   }
 
@@ -310,18 +311,37 @@
 
     &.top {
       margin-top: 50px;
+      @include r($lg) {
+        margin-top: 35px;
+      }
     }
   }
 
   &__subtext {
     margin-bottom: 20px;
     font-size: 24px;
+    @include r($desktop) {
+      font-size: 22px;
+    }
+    @include r($lg) {
+      font-size: 20px;
+    }
+    @include r($sm) {
+      font-size: 18px;
+    }
   }
 
   &__methods {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-gap: 20px;
+    @include r($tablet) {
+      grid-template-columns: repeat(2, 1fr);
+      grid-gap: 14px;
+    }
+    @media (max-width: 510px) {
+      grid-template-columns: repeat(1, 1fr);
+    }
   }
 
   &__method {
@@ -333,6 +353,25 @@
     cursor: pointer;
     border: 1px solid transparent;
     transition: background-color .4s, border .4s;
+    @media (max-width: 1300px) {
+      gap: 18px;
+      padding: 20px;
+    }
+    @media (max-width: 1100px) {
+      flex-direction: column;
+    }
+    @include r($sm) {
+      padding: 20px 16px;
+    }
+
+    &:last-child {
+      @include r($tablet) {
+        grid-column: span 2;
+      }
+      @media (max-width: 510px) {
+        grid-column: span 1;
+      }
+    }
 
     &.active {
       border-color: $accent
@@ -344,17 +383,43 @@
       margin: 9px 0 25px;
       font-size: 26px;
       font-weight: 500;
+      @media (max-width: 1300px) {
+        font-size: 24px;
+      }
+      @include r($lg) {
+        font-size: 22px;
+        margin: 3px 0 20px;
+      }
+      @include r($sm) {
+        font-size: 20px;
+      }
+    }
+  }
+
+  &__description {
+    @media (max-width: 1300px) {
+      font-size: 18px;
+    }
+    @include r($sm) {
+      font-size: 16px;
     }
   }
 
   &__img {
     @include objectCoverBg;
     border-radius: 50%;
+    @media (max-width: 1160px) {
+      width: 42px;
+      height: 42px;
+    }
   }
 
   &__form {
     @include flex-column(14);
     margin-bottom: 80px;
+    @include r($desktop) {
+      margin-bottom: 60px;
+    }
 
     &-item {
       @include flex-align-center(30);
@@ -369,6 +434,22 @@
         height: 30px;
         position: absolute;
         right: 25px;
+        @include r($desktop) {
+          width: 26px;
+          height: 26px;
+        }
+        @include r($tablet) {
+          width: 23px;
+          height: 23px;
+        }
+        @include r($sm) {
+          width: 21px;
+          height: 21px;
+        }
+        @include r($phone) {
+          width: 20px;
+          height: 20px;
+        }
       }
     }
   }
