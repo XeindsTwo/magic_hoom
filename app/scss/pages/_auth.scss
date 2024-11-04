@@ -5,6 +5,12 @@
   align-items: center;
   max-width: 500px;
   margin: 0 auto;
+  @include r($sm) {
+    padding: 40px 0 20px;
+  }
+  @include r($phone) {
+    padding-top: 30px;
+  }
 
   &__link {
     display: flex;
@@ -23,6 +29,13 @@
       margin: 20px 0;
       padding-bottom: 4px;
     }
+
+    img {
+      @include r($phone) {
+        height: auto;
+        width: 220px;
+      }
+    }
   }
 
   &__link {
@@ -36,11 +49,15 @@
     margin-bottom: 35px;
     font-size: 32px;
     color: $white;
+    @include r($lg) {
+      font-size: 30px;
+      margin-bottom: 25px;
+    }
+    @include r($tablet) {
+      font-size: 28px;
+    }
     @include r($sm) {
       font-size: 26px;
-    }
-    @include r($phone) {
-      font-size: 24px;
     }
   }
 
@@ -52,6 +69,9 @@
     @include flex-column(35);
     margin-top: 15px;
     margin-bottom: 30px;
+    @include r($sm) {
+      margin-bottom: 20px;
+    }
   }
 
   &__item {
@@ -65,13 +85,21 @@
     font-weight: 400;
     max-width: max-content;
     font-size: 18px;
-    padding: 14px 50px;
+    padding: 12px 50px;
     background-color: rgba($accent, .7);
     color: $white;
     border-radius: 6px;
     border: 1px solid transparent;
     transition: background-color .4s, color .4s, border .4s, box-shadow .5s;
     position: relative;
+    @include r($lg) {
+      font-size: 16px;
+      padding: 12px 43px;
+    }
+    @include r($phone) {
+      font-size: 14px;
+      padding: 13px 37px;
+    }
 
     &:hover {
       background-color: transparent;

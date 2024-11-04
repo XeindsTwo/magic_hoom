@@ -2,6 +2,18 @@
   @include bg;
   position: relative;
   padding: 100px 0 80px;
+  @media (max-width: 1300px) {
+    padding: 80px 0 60px;
+  }
+  @include r($lg) {
+    padding: 60px 0 50px;
+  }
+  @include r($sm) {
+    padding: 45px 0 40px;
+  }
+  @include r($phone) {
+    padding: 45px 0 30px;
+  }
 
   &::before {
     @include pseudo;
@@ -10,6 +22,9 @@
     top: 0;
     background: rgba($black, .8);
     backdrop-filter: blur(18px);
+    @include r($desktop) {
+      backdrop-filter: blur(22px);
+    }
   }
 
   &__title {
@@ -17,14 +32,53 @@
     font-size: 60px;
     font-weight: 600;
     margin-bottom: 46px;
+    @media (max-width: 1300px) {
+      font-size: 54px;
+    }
+    @include r($desktop) {
+      font-size: 48px;
+    }
+    @include r($lg) {
+      font-size: 42px;
+      font-weight: 500;
+    }
+    @include r($tablet) {
+      font-size: 36px;
+      margin-bottom: 34px;
+    }
+    @include r($sm) {
+      font-size: 32px;
+      margin-bottom: 35px;
+    }
+    @include r($phone) {
+      font-size: 28px;
+    }
   }
 
   &__description {
     @include flex-column(20);
     font-weight: 300;
     font-size: 24px;
+    line-height: 1.4;
     color: #999DA3;
     max-width: 1200px;
+    @media (max-width: 1300px) {
+      font-size: 22px;
+      max-width: 1000px;
+    }
+    @media (max-width: 1100px) {
+      font-size: 20px;
+    }
+    @include r($tablet) {
+      font-size: 18px;
+    }
+    @include r($phone) {
+      font-size: 16px;
+      color: #a3a8af;
+    }
+    @media (max-width: 400px) {
+      font-size: 15px;
+    }
 
     strong {
       display: block;
@@ -39,17 +93,26 @@
       padding: 0;
       font-weight: 400;
       color: $white;
+      @include r($desktop) {
+        margin-top: 22px;
+      }
+      @include r($sm) {
+        margin-top: 0;
+      }
     }
   }
 
   &__subinfo {
     border: 1px solid $accent;
-    background: rgba($accent, .1);
+    background: rgba($white, .07);
     border-radius: 5px;
     max-width: 360px;
     width: 100%;
     padding: 20px;
     margin-top: 40px;
+    @include r($phone) {
+      max-width: 100%;
+    }
   }
 
   &__top {
@@ -57,6 +120,13 @@
     color: $white;
     font-size: 22px;
     margin-bottom: 18px;
+    @include r($lg) {
+      font-size: 20px;
+      margin-bottom: 22px;
+    }
+    @include r($phone) {
+      font-size: 18px;
+    }
   }
 
   &__bottom {
@@ -71,6 +141,9 @@
     overflow: hidden;
     font-size: 18px;
     max-width: 86px;
+    @include r($phone) {
+      font-size: 16px;
+    }
 
     input {
       padding-left: 12px;
@@ -120,6 +193,12 @@
     font-size: 18px;
     border: 1px solid transparent;
     transition: background-color .4s, border .4s, color .4s;
+    @include r($lg) {
+      font-size: 16px;
+    }
+    @include r($phone) {
+      font-size: 15px;
+    }
 
     &:hover {
       background-color: #9b742b;
