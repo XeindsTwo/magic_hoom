@@ -1,3 +1,19 @@
+<!DOCTYPE html>
+<html class="html" lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta http-equiv="content-type" content="public, max-age=3600">
+  <meta name="theme-color" content="#fff">
+  <title>Авторизация</title>
+  <link rel="shortcut icon" href="images/icons/favicon.svg" type="image/x-icon">
+  <link rel="stylesheet" href="css/style.min.css">
+</head>
+<body class="body">
+
 <header class="header" id="header">
   <div class="container">
     <div class="header__inner">
@@ -165,3 +181,30 @@
     </nav>
   </div>
 </header>
+<main>
+  <div class="container">
+    <div class="authorization">
+      <a class="authorization__link" href="/">
+        <img src="../images/logo.svg" alt="logo">
+      </a>
+      <h1 class="authorization__title">Авторизация</h1>
+      <form class="authorization__form" method="post" id="loginForm">
+        <span class="error error__auth" id="auth-error">
+          Неверно введен логин или пароль, попробуйте снова
+        </span>
+        <div class="authorization__items">
+          <div class="authorization__item">
+            <label class="label" for="login">Логин</label>
+            <input class="input input--admin" id="login" name="login" type="text" placeholder="Введите логин" required>
+          </div>
+          <div class="authorization__item">
+            <label class="label" for="password">Пароль</label>
+            <input class="input input--admin" id="password" name="password" type="password" placeholder="Введите пароль"
+                   required>
+          </div>
+        </div>
+        <button class="authorization__btn" id="auth-button" type="submit">Войти</button>
+      </form>
+    </div>
+  </div>
+</main>

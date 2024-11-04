@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html class="html" lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta http-equiv="content-type" content="public, max-age=3600">
+  <meta name="theme-color" content="#fff">
+  <title>Свеча Леший</title>
+  <link rel="shortcut icon" href="images/icons/favicon.svg" type="image/x-icon">
+  <link rel="stylesheet" href="css/style.min.css">
+</head>
+<body class="body">
+
+@include('components/_header-dop.html')
+<main class="main">
+  <section class="product-details" style="background-image: url('../../images/catalog/1.png')">
+    <div class="container">
+      <h1 class="product-details__title">Свеча Леший</h1>
+      <div class="product-details__description">
+        <p>
+          Лес – это место обитания Духа леса. Дух леса – это разумная составляющая самого лесного массива, причем чем
+          старше и больше лес, тем она, соответственно, старше и могущественней. Лес – это особое место Силы. Наши
+          предки
+          знали о целебной силе деревьев и широко использовали её во благо своему здоровью. Эффект от свечи:
+        </p>
+        <strong>- укрепление здоровья</strong>
+        <strong>- расширение финансовых возможностей</strong>
+        <strong>- наработка и укрепление связи с Духом Леса</strong>
+        <p>
+          Техника безопасности: время горения свечи до 5 часов, установите свечу безопасно, соблюдая все меры
+          предосторожности, зажигаем свечу живым огнем, то есть спичками, с намерением и четко сформулированным
+          желанием. Свеча должна прогореть и погаснуть самостоятельно, тушить нельзя. Задувая ритуальную свечу, вы
+          аннулируете эффект ритуала. Инструкция прилагается. Самодеятельность при ритуале, к которому есть четкая
+          инструкция, может привести к непредсказуемому результату.
+        </p>
+        <p>
+          Все мои свечи и ритуалы к ним строго выверены и неоднократно проверены в работе. Отклонение от рекомендаций
+          или основательная переделка ритуала может привести к рассеиванию магической программы или вовсе ее
+          некорректной работе.
+        </p>
+        <blockquote>
+          Сделана из натурального пчелиного воска. <br>
+          Размер 8 см, вес 122 грамм
+        </blockquote>
+      </div>
+      <div class="product-details__subinfo">
+        <div class="product-details__top">
+          Цена за шт
+          <span>1 550 ₽</span>
+        </div>
+        <form class="product-details__bottom">
+          <div class="product-details__counter">
+            <input type="number" id="quantity" name="quantity" value="1" min="1" max="100">
+            <div class="product-details__buttons">
+              <button class="product-details__btn plus" type="button">
+                <span class="sr-only">Прибавить количество товара на 1</span>
+                <svg class="svg_icon" viewBox="0 0 9 8" xmlns="https://www.w3.org/2000/svg">
+                  <rect x="4" width="2" height="8" rx="1"></rect>
+                  <rect x="1" y="5.00488" width="2" height="8" rx="1" transform="rotate(-90.0355 1 5.00488)"></rect>
+                </svg>
+              </button>
+              <button class="product-details__btn minus" type="button">
+                <span class="sr-only">Убавить количество товара на 1</span>
+                <svg class="svg_icon" viewBox="0 0 9 3" xmlns="https://www.w3.org/2000/svg">
+                  <rect x="1" y="2.00488" width="2" height="8" rx="1" transform="rotate(-90.0355 1 2.00488)"></rect>
+                </svg>
+              </button>
+            </div>
+          </div>
+          <button class="product-details__buy" type="submit">В корзину</button>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+<script src="js/main.min.js" type="module"></script>

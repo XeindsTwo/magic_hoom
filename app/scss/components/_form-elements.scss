@@ -9,12 +9,8 @@
   transition: border .4s, background-color .4s;
   color: $white;
   @include r($lg) {
-    font-size: 16px;
     padding: 17px 16px;
     border-radius: 12px;
-  }
-  @include r($phone) {
-    font-size: 14px;
   }
 
   &:hover {
@@ -40,6 +36,11 @@
     -webkit-text-fill-color: $white;
   }
 
+  &--admin {
+    font-size: 16px;
+    padding: 19px 16px;
+  }
+
   &--error {
     border-color: rgba($red, .3);
 
@@ -51,7 +52,7 @@
 
 .label {
   display: block;
-  color: $black;
+  color: $white;
   font-size: 16px;
   margin-bottom: 3px;
 }
@@ -59,7 +60,7 @@
 .error {
   display: none;
   color: #d91e1e;
-  font-size: 18px;
+  font-size: 16px;
   margin-bottom: 10px;
 
   &.active {

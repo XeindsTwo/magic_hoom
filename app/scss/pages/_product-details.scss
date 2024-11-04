@@ -1,0 +1,135 @@
+.product-details {
+  @include bg;
+  position: relative;
+  padding: 100px 0 80px;
+
+  &::before {
+    @include pseudo;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    background: rgba($black, .8);
+    backdrop-filter: blur(18px);
+  }
+
+  &__title {
+    color: $white;
+    font-size: 60px;
+    font-weight: 600;
+    margin-bottom: 46px;
+  }
+
+  &__description {
+    @include flex-column(20);
+    font-weight: 300;
+    font-size: 24px;
+    color: #999DA3;
+    max-width: 1200px;
+
+    strong {
+      display: block;
+      color: $white;
+      font-weight: 300;
+      margin: -6px 0;
+    }
+
+    blockquote {
+      display: block;
+      margin: 32px 0 0;
+      padding: 0;
+      font-weight: 400;
+      color: $white;
+    }
+  }
+
+  &__subinfo {
+    border: 1px solid $accent;
+    background: rgba($accent, .1);
+    border-radius: 5px;
+    max-width: 360px;
+    width: 100%;
+    padding: 20px;
+    margin-top: 40px;
+  }
+
+  &__top {
+    @include flex-between-center-gap(30);
+    color: $white;
+    font-size: 22px;
+    margin-bottom: 18px;
+  }
+
+  &__bottom {
+    @include flex-between-center-gap(30);
+  }
+
+  &__counter {
+    @include flex-align-center(10);
+    background-color: $white;
+    align-self: stretch;
+    border-radius: 5px;
+    overflow: hidden;
+    font-size: 18px;
+    max-width: 86px;
+
+    input {
+      padding-left: 12px;
+      max-width: 52px;
+      text-align: center;
+    }
+  }
+
+  &__buttons {
+    @include flex-column(2);
+    height: 100%;
+  }
+
+  &__btn {
+    @include flex-center;
+    background-color: #937036;
+    border: 1px solid transparent;
+    width: 20px;
+    height: 100%;
+    transition: all .4s;
+
+    &:hover {
+      background-color: $black;
+
+      svg rect {
+        fill: $white;
+      }
+    }
+
+    svg {
+      width: 10px;
+      height: auto;
+
+      rect {
+        fill: $white;
+      }
+    }
+  }
+
+  &__buy {
+    @include flex-center;
+    display: flex;
+    background-color: $white;
+    padding: 13px 18px;
+    color: $black;
+    border-radius: 7px;
+    font-size: 18px;
+    border: 1px solid transparent;
+    transition: background-color .4s, border .4s, color .4s;
+
+    &:hover {
+      background-color: #9b742b;
+      color: $white;
+    }
+
+    &:focus {
+      background-color: transparent;
+      border-color: $white;
+      color: $white;
+    }
+  }
+}

@@ -17,13 +17,13 @@
 <header class="header" id="header">
   <div class="container">
     <div class="header__inner">
-      <a href="/">
+      <a class="header__logo" href="/">
         <img src="images/logo.svg" alt="">
       </a>
       <nav class="header__nav">
         <ul class="header__list">
           <li>
-            <a class="header__link" href="#candles">
+            <a class="header__link desktop" href="#candles">
               Свечи
               <svg xmlns="http://www.w3.org/2000/svg" width="14" height="9" viewBox="0 0 14 9" fill="none">
                 <path fill-rule="evenodd" clip-rule="evenodd"
@@ -33,18 +33,15 @@
             </a>
             <ul class="header__sublist">
               <li>
-                <a class="header__sublink" href="">Тотемные</a>
+                <a class="header__sublink desktop" href="#svechi_novogdnie">Свечи новогодние</a>
               </li>
               <li>
-                <a class="header__sublink" href="">Фарт, процветание, финансы</a>
-              </li>
-              <li>
-                <a class="header__sublink" href="">Очистительные</a>
+                <a class="header__sublink desktop" href="#fart">Фарт, процветание, финансы</a>
               </li>
             </ul>
           </li>
           <li>
-            <a class="header__link" href="#amulets">
+            <a class="header__link desktop" href="#amulets">
               Амулеты
               <svg xmlns="http://www.w3.org/2000/svg" width="14" height="9" viewBox="0 0 14 9" fill="none">
                 <path fill-rule="evenodd" clip-rule="evenodd"
@@ -54,18 +51,18 @@
             </a>
             <ul class="header__sublist">
               <li>
-                <a class="header__sublink" href="">Тотемные</a>
+                <a class="header__sublink desktop" href="#svechi_novogdnie">Тотемные</a>
               </li>
               <li>
-                <a class="header__sublink" href="">Фарт, процветание, финансы</a>
+                <a class="header__sublink desktop" href="#svechi_novogdnie">Фарт, процветание, финансы</a>
               </li>
               <li>
-                <a class="header__sublink" href="">Очистительные</a>
+                <a class="header__sublink desktop" href="#svechi_novogdnie">Очистительные</a>
               </li>
             </ul>
           </li>
           <li>
-            <a class="header__link" href="#herbs">
+            <a class="header__link desktop" href="#herbs">
               Травы
               <svg xmlns="http://www.w3.org/2000/svg" width="14" height="9" viewBox="0 0 14 9" fill="none">
                 <path fill-rule="evenodd" clip-rule="evenodd"
@@ -75,18 +72,18 @@
             </a>
             <ul class="header__sublist">
               <li>
-                <a class="header__sublink" href="">Тотемные</a>
+                <a class="header__sublink desktop" href="#svechi_novogdnie">Тотемные</a>
               </li>
               <li>
-                <a class="header__sublink" href="">Фарт, процветание, финансы</a>
+                <a class="header__sublink desktop" href="#svechi_novogdnie">Фарт, процветание, финансы</a>
               </li>
               <li>
-                <a class="header__sublink" href="">Очистительные</a>
+                <a class="header__sublink desktop" href="#svechi_novogdnie">Очистительные</a>
               </li>
             </ul>
           </li>
           <li>
-            <a class="header__link" href="#bracelets">
+            <a class="header__link desktop" href="#bracelets">
               Браслеты
               <svg xmlns="http://www.w3.org/2000/svg" width="14" height="9" viewBox="0 0 14 9" fill="none">
                 <path fill-rule="evenodd" clip-rule="evenodd"
@@ -96,13 +93,13 @@
             </a>
             <ul class="header__sublist">
               <li>
-                <a class="header__sublink" href="">Тотемные</a>
+                <a class="header__sublink desktop" href="#svechi_novogdnie">Тотемные</a>
               </li>
               <li>
-                <a class="header__sublink" href="">Фарт, процветание, финансы</a>
+                <a class="header__sublink desktop" href="#svechi_novogdnie">Фарт, процветание, финансы</a>
               </li>
               <li>
-                <a class="header__sublink" href="">Очистительные</a>
+                <a class="header__sublink desktop" href="#svechi_novogdnie">Очистительные</a>
               </li>
             </ul>
           </li>
@@ -196,7 +193,7 @@
     </p>
     <div class="home__actions">
       <a class="home__btn" href="">Выбрать товар</a>
-      <a class="home__btn about" href="">Узнать о нас подробнее</a>
+      <a class="home__btn about desktop" href="#about">Узнать о нас подробнее</a>
     </div>
   </div>
 </section>
@@ -207,7 +204,7 @@
       <li class="catalog__item">
         <h3 class="catalog__name" id="candles">Свечи:</h3>
         <ul class="catalog__subsection">
-          <li>
+          <li id="svechi_novogdnie">
             <p class="catalog__subsection-title">Свечи новогодние</p>
             <ul class="catalog__subsection-list">
               <li class="card">
@@ -238,7 +235,7 @@
               </li>
             </ul>
           </li>
-          <li>
+          <li id="fart">
             <p class="catalog__subsection-title">Свечи любовная магия, розжиг страсти, привлечение партнёра, привлекательность, стройность:</p>
             <ul class="catalog__subsection-list">
               <li class="card">
@@ -435,7 +432,7 @@
                 fill="white"/>
           </svg>
         </a>
-        <a class="header__btn order" href="https://web.telegram.com/" target="_blank">
+        <a class="header__btn order" href="order.html">
           <svg xmlns="http://www.w3.org/2000/svg" width="29" height="30" viewBox="0 0 29 30" fill="none">
             <path
                 d="M20.5417 20.8586C19.2069 20.8586 18.125 21.9078 18.125 23.2021C18.125 24.4963 19.2069 25.5455 20.5417 25.5455C21.8764 25.5455 22.9583 24.4963 22.9583 23.2021C22.9583 21.9078 21.8764 20.8586 20.5417 20.8586ZM20.5417 20.8586H11.2302C10.6731 20.8586 10.394 20.8586 10.1646 20.7625C9.9623 20.6777 9.78675 20.5412 9.65886 20.3671C9.5155 20.172 9.45785 19.9111 9.34373 19.3946L6.3697 5.9364C6.25293 5.40793 6.19376 5.144 6.04875 4.94662C5.92086 4.77254 5.74535 4.63551 5.54301 4.55073C5.3136 4.45459 5.03608 4.45459 4.47872 4.45459H3.625M7.25 7.96974H22.8051C23.6773 7.96974 24.1129 7.96974 24.4057 8.14592C24.6621 8.30024 24.8497 8.54227 24.9315 8.82392C25.0251 9.14548 24.905 9.55151 24.6633 10.3641L22.9902 15.9884C22.8457 16.4742 22.7733 16.7166 22.6268 16.8969C22.4974 17.0561 22.3266 17.1806 22.133 17.2571C21.9145 17.3435 21.6547 17.3435 21.1363 17.3435H9.34098M9.66667 25.5455C8.33198 25.5455 7.25 24.4963 7.25 23.2021C7.25 21.9078 8.33198 20.8586 9.66667 20.8586C11.0014 20.8586 12.0833 21.9078 12.0833 23.2021C12.0833 24.4963 11.0014 25.5455 9.66667 25.5455Z"

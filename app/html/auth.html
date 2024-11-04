@@ -1,0 +1,31 @@
+@include('components/_head.html', {
+title: 'Авторизация'
+})
+
+<main>
+  <div class="container">
+    <div class="authorization">
+      <a class="authorization__link" href="/">
+        <img src="../images/logo.svg" alt="logo" width="237" height="40">
+      </a>
+      <h1 class="authorization__title">Авторизация</h1>
+      <form class="authorization__form" method="post" id="loginForm">
+        <span class="error error__auth" id="auth-error">
+          Неверно введен логин или пароль, попробуйте снова
+        </span>
+        <div class="authorization__items">
+          <div class="authorization__item">
+            <label class="label" for="login">Логин</label>
+            <input class="input input--admin" id="login" name="login" type="text" placeholder="Введите логин" required>
+          </div>
+          <div class="authorization__item">
+            <label class="label" for="password">Пароль</label>
+            <input class="input input--admin" id="password" name="password" type="password" placeholder="Введите пароль"
+                   required>
+          </div>
+        </div>
+        <button class="authorization__btn" id="auth-button" type="submit">Войти</button>
+      </form>
+    </div>
+  </div>
+</main>
