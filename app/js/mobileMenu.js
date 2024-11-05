@@ -5,6 +5,8 @@ export function setupMobileMenu() {
   const anchors = document.querySelectorAll('a.mobile');
   const header = document.querySelector(".header");
 
+  let isLinkClicked = false; // Флаг, указывающий, что ссылка была нажата
+
   menuBtn.addEventListener('click', () => {
     menuBtn.blur();
     toggleMenu();
@@ -26,6 +28,8 @@ export function setupMobileMenu() {
     if (targetSection) {
       const offsetTop = targetSection.getBoundingClientRect().top + window.scrollY - (header ? header.offsetHeight : 0) - 10;
 
+      isLinkClicked = true; // Устанавливаем флаг, что ссылка была нажата
+
       toggleMenu();
 
       setTimeout(() => {
@@ -43,9 +47,10 @@ export function setupMobileMenu() {
   }
 
   function closeMenu() {
-    if (html.classList.contains('active')) {
+    if (html.classList.contains('active') && !isLinkClicked) {
       toggleMenu();
     }
+    isLinkClicked = false; // Сбрасываем флаг
   }
 
   function handleClickOutside(event) {
@@ -62,7 +67,6 @@ export function setupMobileMenu() {
 
   for (const anchor of anchors) {
     anchor.addEventListener('click', handleAnchorClick);
-    anchor.addEventListener('touchstart', handleAnchorClick, { passive: true });
   }
 
   document.addEventListener('click', handleClickOutside);
