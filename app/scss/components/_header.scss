@@ -117,6 +117,14 @@
     background-color: $white;
     border: 1px solid transparent;
     transition: background-color .4s, color .4s, border .4s;
+    @include r($lg) {
+      width: 45px;
+      height: 45px;
+      svg {
+        width: auto;
+        height: 26px;
+      }
+    }
 
     &:hover {
       background-color: transparent;

@@ -2,31 +2,87 @@
   margin-top: 70px;
   border-top: 2px solid rgba($white, .1);
   padding: 40px 0;
+  @media (max-width: 1300px) {
+    padding: 30px 0;
+  }
   @include r($desktop) {
-    padding: 35px 0;
+    padding: 25px 0;
   }
-  @include r($lg) {
-    padding-bottom: 25px;
+  @media (max-width: 1040px) {
+    padding: 20px 0;
   }
-  @include r($tablet) {
-    padding: 30px 0 20px;
+  @include r($sm) {
+    margin-top: 60px;
   }
 
   &__inner {
     @include flex-align-center(30);
+    @media (max-width: 1040px) {
+      flex-wrap: wrap;
+    }
+    @media (max-width: 450px) {
+      flex-direction: column;
+    }
   }
 
   &__logo, &__right {
     max-width: 237px;
     width: 100%;
+    @include r($desktop) {
+      max-width: 220px;
+    }
+    @media (max-width: 1040px) {
+      max-width: max-content;
+    }
+  }
+
+  &__logo {
+    border: 1px solid transparent;
+    border-radius: 5px;
+    transition: border .4s, opacity .4s;
+
+    &:hover {
+      opacity: .6;
+    }
+
+    &:focus {
+      border-color: $accent;
+    }
+
+    @include r($desktop) {
+      width: 220px;
+      height: auto;
+    }
+    @include r($sm) {
+      width: 212px;
+    }
+    @media (max-width: 540px) {
+      width: 205px;
+    }
   }
 
   &__nav {
     margin: 0 auto;
+    @media (max-width: 1040px) {
+      max-width: 100%;
+      width: 100%;
+      margin-left: auto;
+      margin-right: 0;
+      order: 1;
+    }
   }
 
   &__list {
     @include flex-align-center(30);
+    @include r($sm) {
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    @include r($phone) {
+      gap: 14px 20px;
+      margin: 0 auto;
+      justify-content: center;
+    }
   }
 
   &__link {
@@ -35,8 +91,11 @@
     padding: 1px 2px;
     border: 1px solid transparent;
     transition: color .4s, border .4s;
-    @include r($sm) {
-      font-size: 15px;
+    @media (max-width: 1120px) {
+      font-size: 18px;
+    }
+    @media (max-width: 540px) {
+      font-size: 16px;
     }
 
     &:hover {
@@ -52,6 +111,16 @@
   &__right {
     @include flex-align-center(25);
     justify-content: flex-end;
+    @media (max-width: 1040px) {
+      order: 0;
+      margin-left: auto;
+    }
+    @include r($sm) {
+      gap: 20px;
+    }
+    @media (max-width: 450px) {
+      margin: 0 auto;
+    }
   }
 
   &__up {
@@ -61,6 +130,12 @@
     border: 1px solid transparent;
     border-radius: 5px;
     transition: color .4s, border .4s;
+    @include r($desktop) {
+      font-size: 18px;
+    }
+    @include r($lg) {
+      font-size: 16px;
+    }
 
     &:hover {
       color: $accent;

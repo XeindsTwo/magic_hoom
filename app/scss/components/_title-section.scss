@@ -3,6 +3,29 @@
   font-size: 60px;
   font-weight: 700;
   letter-spacing: -1.2px;
+  @media (max-width: 1300px) {
+    font-size: 56px;
+  }
+  @include r($desktop) {
+    font-size: 52px;
+  }
+  @include r($lg) {
+    font-size: 48px;
+  }
+  @include r($tablet) {
+    font-size: 44px;
+    font-weight: 500;
+  }
+  @include r($sm) {
+    font-size: 40px;
+    letter-spacing: -0.8px;
+  }
+  @include r($phone) {
+    font-size: 36px;
+  }
+  @media (max-width: 390px) {
+    font-size: 34px;
+  }
 
   span {
     color: $accent;
