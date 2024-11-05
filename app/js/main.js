@@ -9,7 +9,7 @@ document.querySelectorAll(".desktop").forEach(link => {
     link.blur();
 
     const header = document.querySelector(".header");
-    header.classList.add('no-hover');
+    header.classList.remove('scroll');
 
     const targetId = link.getAttribute("href").slice(1);
     const targetSection = document.getElementById(targetId);
@@ -19,19 +19,11 @@ document.querySelectorAll(".desktop").forEach(link => {
       const headerHeight = header ? header.offsetHeight : 0;
       const offsetTop = targetSection.getBoundingClientRect().top + currentScrollPos - headerHeight;
 
-      if (offsetTop < currentScrollPos && header) {
-        header.classList.remove('scroll');
-      }
-
       window.scrollTo({
         top: offsetTop,
         behavior: "smooth"
       });
     }
-
-    setTimeout(() => {
-      header.classList.remove('no-hover');
-    }, 500);
   });
 });
 

@@ -2,21 +2,38 @@
   padding: 30px 0;
   position: fixed;
   width: 100%;
-  z-index: 50;
+  z-index: 66;
   top: 0;
   background: #0a0606;
   pointer-events: auto;
   visibility: visible;
   transition: transform .5s, visibility .5s;
+  @media (max-width: 1200px) {
+    padding: 25px 0;
+  }
+  @include r($phone) {
+    padding: 22px 0;
+  }
 
   &.scroll {
     transform: translateY(-110px);
     pointer-events: none;
-    visibility: visible;
+    visibility: hidden;
+    @media (max-width: 1300px) {
+      transform: none;
+      pointer-events: auto;
+      visibility: visible;
+    }
   }
 
   &__inner {
     @include flex-align-center(20);
+    @include r($phone) {
+      gap: 16px;
+    }
+    @media (max-width: 400px) {
+      gap: 13px;
+    }
   }
 
   &__logo {
@@ -31,17 +48,54 @@
     &:focus {
       border-color: $accent;
     }
+
+    @media (max-width: 380px) {
+      margin-right: 13px;
+    }
+
+    img {
+      @include r($phone) {
+        width: auto;
+        height: 37px;
+      }
+      @media (max-width: 400px) {
+        height: 34px;
+      }
+    }
   }
 
   &__nav {
     margin-left: 40px;
+    @media (max-width: 1350px) {
+      margin-left: 30px;
+    }
+    @media (max-width: 1300px) {
+      display: none;
+    }
+
+    &.mobile {
+      display: none;
+      @media (max-width: 1300px) {
+        display: block;
+        width: 100%;
+        margin-left: 0;
+      }
+    }
   }
 
   &__list {
     @include flex-align-center(30);
+    @media (max-width: 1300px) {
+      gap: 36px;
+      flex-direction: column;
+      width: 100%;
+    }
 
     li {
       position: relative;
+      @media (max-width: 1300px) {
+        width: 100%;
+      }
 
       &:hover {
         .header__sublist {
@@ -63,6 +117,12 @@
     border: 1px solid transparent;
     border-radius: 4px;
     transition: color .4s, border .4s;
+    @media (max-width: 1300px) {
+      max-width: max-content;
+    }
+    @include r($sm) {
+      font-size: 16px;
+    }
 
     &:hover {
       color: $accent;
@@ -95,6 +155,11 @@
     padding-top: 10px;
     opacity: 0;
     transition: opacity .4s, visibility .4s;
+    @media (max-width: 1300px) {
+      position: sticky;
+      opacity: 1;
+      visibility: visible;
+    }
 
     li {
       width: 100%;
@@ -111,6 +176,12 @@
     background-color: #121212;
     border: 1px solid #212121;
     transition: background-color .4s, border .4s;
+    @media (max-width: 1300px) {
+      padding: 13px 8px;
+    }
+    @include r($lg) {
+      padding: 15px 10px;
+    }
 
     &:hover {
       border-color: $white;
@@ -120,6 +191,22 @@
   &__right {
     @include flex-align-center(16);
     margin-left: auto;
+    @media (max-width: 1300px) {
+      gap: 17px;
+    }
+    @media (max-width: 840px) {
+      gap: 15px;
+    }
+
+    &.mobile {
+      display: none;
+      margin-left: 0;
+      @media (max-width: 590px) {
+        margin-top: -8px;
+        margin-bottom: 15px;
+        display: flex;
+      }
+    }
   }
 
   &__btn {
@@ -130,12 +217,12 @@
     background-color: $white;
     border: 1px solid transparent;
     transition: background-color .4s, color .4s, border .4s;
-    @include r($lg) {
+    @media (max-width: 1350px) {
       width: 45px;
       height: 45px;
       svg {
         width: auto;
-        height: 26px;
+        height: 22px;
       }
     }
 
@@ -179,6 +266,19 @@
           stroke: $black;
         }
       }
+
+      svg {
+        @media (max-width: 1350px) {
+          width: auto;
+          height: 26px;
+        }
+      }
+    }
+
+    &.non {
+      @media (max-width: 590px) {
+        display: none;
+      }
     }
   }
 
@@ -189,6 +289,15 @@
     border: 1px solid transparent;
     border-radius: 4px;
     transition: color .4s, border .4s;
+    @media (max-width: 1300px) {
+      order: -1;
+    }
+    @media (max-width: 920px) {
+      font-size: 16px;
+    }
+    @include r($tablet) {
+      display: none;
+    }
 
     &:hover {
       color: $accent;
@@ -198,46 +307,56 @@
       color: $accent;
       border-color: $accent;
     }
+
+    &.mobile {
+      display: none;
+      @include r($tablet) {
+        display: flex;
+        font-size: 18px;
+      }
+      @include r($sm) {
+        font-size: 17px;
+      }
+      @include r($phone) {
+        font-size: 18px;
+      }
+    }
   }
 
   &__mobile {
     @include flex-column(30);
-    padding: 135px 45px 30px;
+    padding: 125px 16px 30px 30px;
     display: none;
+    overflow-y: scroll;
     pointer-events: none;
     user-select: none;
     position: fixed;
-    z-index: 25;
+    z-index: 65;
     top: 0;
-    left: 0;
+    right: 0;
+    max-width: 435px;
     width: 100%;
-    background-color: $white300;
+    background-color: #0a0606;
     transform: translateX(100%);
     height: 100vh;
     transition: transform .7s ease-in-out;
-    @media (max-width: 1100px) {
+    @media (max-width: 1300px) {
       display: flex;
       align-items: flex-start;
       pointer-events: auto;
       user-select: auto;
     }
-    @include r($lg) {
-      padding: 135px 40px 30px;
-    }
-    @media (max-width: 870px) {
-      padding: 135px 35px 30px;
-    }
     @include r($tablet) {
-      padding: 135px 35px 30px;
-    }
-    @include r($sm) {
-      padding: 135px 35px 30px;
+      padding-top: 110px;
+      max-width: 380px;
     }
     @include r($phone) {
-      padding: 135px 20px 30px;
+      max-width: 100%;
+      padding: 115px 15px 30px;
     }
-    @media (max-width: 450px) {
-      padding-top: 125px;
+
+    &::-webkit-scrollbar {
+      display: none;
     }
 
     &.active {

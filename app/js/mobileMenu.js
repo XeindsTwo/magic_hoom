@@ -2,43 +2,69 @@ export function setupMobileMenu() {
   const html = document.documentElement;
   const menuBtn = document.querySelector('.menu-btn');
   const headerMobile = document.querySelector('.header__mobile');
-  const headerLogo = document.querySelector('.header__logo');
   const anchors = document.querySelectorAll('a.mobile');
+  const header = document.querySelector(".header");
 
   menuBtn.addEventListener('click', () => {
     menuBtn.blur();
-    html.classList.toggle('active');
-    menuBtn.classList.toggle('active');
-    headerMobile.classList.toggle('active');
-    headerLogo.classList.toggle('active');
+    toggleMenu();
   });
 
-  function scrollToTarget(targetId) {
-    const targetSection = document.querySelector(targetId);
+  function toggleMenu() {
+    html.classList.toggle('active');
+    document.body.classList.toggle('active');
+    menuBtn.classList.toggle('active');
+    headerMobile.classList.toggle('active');
+  }
+
+  function scrollToTarget(link) {
+    header.classList.remove('scroll');
+
+    const targetId = link.getAttribute("href").slice(1);
+    const targetSection = document.getElementById(targetId);
+
     if (targetSection) {
-      html.classList.remove('active');
-      headerMobile.classList.remove('active');
-      menuBtn.classList.remove('active');
-      headerLogo.classList.remove('active');
+      const offsetTop = targetSection.getBoundingClientRect().top + window.scrollY - (header ? header.offsetHeight : 0) - 10;
+
+      toggleMenu();
+
       setTimeout(() => {
-        const targetOffset = targetSection.offsetTop - 25;
-        window.scrollTo({top: targetOffset, behavior: 'smooth'});
-      }, 700);
+        window.scrollTo({
+          top: offsetTop,
+          behavior: "smooth"
+        });
+      }, 500);
     }
   }
 
   function handleAnchorClick(event) {
     event.preventDefault();
-    const href = this.getAttribute('href');
-    const hrefParts = href.split('#');
-    if (hrefParts.length === 2) {
-      const targetId = '#' + hrefParts[1];
-      scrollToTarget(targetId);
+    scrollToTarget(this);
+  }
+
+  function closeMenu() {
+    if (html.classList.contains('active')) {
+      toggleMenu();
+    }
+  }
+
+  function handleClickOutside(event) {
+    if (!headerMobile.contains(event.target) && !menuBtn.contains(event.target) && !header.contains(event.target)) {
+      closeMenu();
+    }
+  }
+
+  function handleKeyDown(event) {
+    if (event.key === 'Escape') {
+      closeMenu();
     }
   }
 
   for (const anchor of anchors) {
     anchor.addEventListener('click', handleAnchorClick);
-    anchor.addEventListener('touchstart', handleAnchorClick, {passive: true});
+    anchor.addEventListener('touchstart', handleAnchorClick, { passive: true });
   }
+
+  document.addEventListener('click', handleClickOutside);
+  document.addEventListener('keydown', handleKeyDown);
 }

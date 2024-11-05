@@ -4,8 +4,18 @@
   @media (max-width: 1300px) {
     padding-top: 60px;
   }
+  @include r($desktop) {
+    margin-top: 95px;
+  }
   @include r($tablet) {
     padding-top: 45px;
+  }
+  @include r($sm) {
+    padding-top: 35px;
+  }
+  @include r($phone) {
+    margin-top: 90px;
+    padding-top: 30px;
   }
 
   &__img {
@@ -13,6 +23,13 @@
     width: 100%;
     position: absolute;
     top: 0;
+    @include r($sm) {
+      opacity: .7;
+      object-position: left;
+    }
+    @include r($phone) {
+      opacity: .6;
+    }
 
     &.blur {
       filter: blur(7.5px);
