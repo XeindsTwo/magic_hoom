@@ -1,10 +1,26 @@
 .catalog {
   &__title {
     margin-bottom: 60px;
+    @include r($tablet) {
+      margin-bottom: 50px;
+    }
+    @include r($sm) {
+      font-size: 36px;
+      margin-bottom: 40px;
+    }
+    @media (max-width: 490px) {
+      font-size: 34px;
+    }
   }
 
   &__list {
     @include flex-column(100);
+    @include r($desktop) {
+      gap: 80px;
+    }
+    @include r($phone) {
+      gap: 60px;
+    }
   }
 
   &__name {
@@ -12,10 +28,30 @@
     font-weight: 500;
     color: $white;
     margin-bottom: 30px;
+    @media (max-width: 1300px) {
+      font-size: 36px;
+      margin-bottom: 26px;
+    }
+    @media (max-width: 1100px) {
+      font-size: 32px;
+    }
+    @include r($sm) {
+      font-size: 28px;
+      margin-bottom: 20px;
+    }
+    @media (max-width: 490px) {
+      font-size: 26px;
+    }
   }
 
   &__subsection {
     @include flex-column(80);
+    @include r($desktop) {
+      gap: 70px;
+    }
+    @media (max-width: 490px) {
+      gap: 50px;
+    }
 
     &-title {
       position: relative;
@@ -25,6 +61,20 @@
       color: rgba($white, .9);
       padding-bottom: 7px;
       margin-bottom: 25px;
+      @media (max-width: 1300px) {
+        font-size: 24px;
+        max-width: 800px;
+        padding-bottom: 11px;
+      }
+      @include r($tablet) {
+        font-size: 22px;
+      }
+      @include r($sm) {
+        font-size: 20px;
+      }
+      @media (max-width: 420px) {
+        font-size: 18px;
+      }
 
       &::after {
         @include pseudo;
@@ -40,6 +90,20 @@
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       grid-gap: 30px;
+      @include r($lg) {
+        grid-gap: 20px;
+        grid-template-columns: repeat(2, 1fr);
+      }
+      @media (max-width: 490px) {
+        margin: 0 -15px;
+        padding: 0 15px 15px;
+        display: flex;
+        overflow-x: scroll;
+        &::-webkit-scrollbar {
+          height: 4px;
+          background-color: rgba($white, .3);
+        }
+      }
     }
   }
 }
