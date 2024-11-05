@@ -1,5 +1,11 @@
 .home {
   padding-top: 80px;
+  @media (max-width: 1300px) {
+    padding-top: 60px;
+  }
+  @include r($tablet) {
+    padding-top: 45px;
+  }
 
   &__img {
     @include objectCoverBg;
@@ -18,15 +24,83 @@
     color: $white;
     line-height: 1.1;
     margin-bottom: 32px;
+    @media (max-width: 1400px) {
+      font-size: 74px;
+    }
+    @media (max-width: 1300px) {
+      font-size: 68px;
+    }
+    @include r($desktop) {
+      font-size: 64px;
+    }
+    @media (max-width: 1100px) {
+      font-size: 60px;
+    }
+    @include r($lg) {
+      font-size: 56px;
+    }
+    @media (max-width: 900px) {
+      font-size: 52px;
+    }
+    @include r($tablet) {
+      font-size: 48px;
+    }
+    @media (max-width: 660px) {
+      font-size: 44px;
+    }
+    @media (max-width: 560px) {
+      font-size: 40px;
+    }
+    @media (max-width: 500px) {
+      font-size: 38px;
+    }
+    @include r($phone) {
+      font-size: 36px;
+      line-height: 1.2;
+    }
+    @media (max-width: 400px) {
+      font-size: 34px;
+    }
+    @media (max-width: 380px) {
+      font-size: 30px;
+    }
   }
 
   &__text {
     font-size: 26px;
     margin-bottom: 60px;
+    @media (max-width: 1400px) {
+      font-size: 24px;
+    }
+    @include r($desktop) {
+      font-size: 22px;
+    }
+    @media (max-width: 1100px) {
+      max-width: 520px;
+    }
+    @media (max-width: 900px) {
+      font-size: 20px;
+    }
+    @media (max-width: 660px) {
+      margin-bottom: 50px;
+    }
+    @media (max-width: 520px) {
+      font-size: 18px;
+    }
+    @include r($phone) {
+      margin-bottom: 40px;
+    }
+    @media (max-width: 400px) {
+      font-size: 16px;
+    }
   }
 
   &__actions {
     @include flex-align-center(18);
+    @include r($phone) {
+      flex-direction: column;
+      align-items: flex-start;
+    }
   }
 
   &__btn {
@@ -38,6 +112,24 @@
     color: $black;
     border: 2px solid transparent;
     transition: background-color .4s, color .4s, border .4s;
+    @include r($desktop) {
+      padding: 20px 34px;
+      font-size: 20px;
+    }
+    @include r($lg) {
+      font-size: 18px;
+      padding: 18px 30px;
+    }
+    @media (max-width: 660px) {
+      font-size: 16px;
+      padding: 17px 26px;
+    }
+    @include r($phone) {
+      padding: 15px 20px;
+    }
+    @media (max-width: 420px) {
+      width: 100%;
+    }
 
     &:hover {
       background-color: rgba($accent, .8);

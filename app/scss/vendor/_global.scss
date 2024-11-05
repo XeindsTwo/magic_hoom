@@ -62,8 +62,11 @@
 
 .indent {
   margin-bottom: 140px;
+  @include r($lg) {
+    margin-bottom: 120px;
+  }
   @include r($tablet) {
-    margin-bottom: 80px;
+    margin-bottom: 100px;
   }
   @include r($phone) {
     margin-bottom: 70px;
