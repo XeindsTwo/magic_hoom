@@ -2,8 +2,12 @@
   @include bg;
   position: relative;
   padding: 100px 0 80px;
+  margin-top: 110px;
   @media (max-width: 1300px) {
     padding: 80px 0 60px;
+  }
+  @include r($desktop) {
+    margin-top: 95px;
   }
   @include r($lg) {
     padding: 60px 0 50px;
@@ -13,6 +17,7 @@
   }
   @include r($phone) {
     padding: 45px 0 30px;
+    margin-top: 90px;
   }
 
   &::before {

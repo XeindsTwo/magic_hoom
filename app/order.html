@@ -17,40 +17,40 @@
 <header class="header" id="header">
   <div class="container">
     <div class="header__inner">
-      <a href="/">
+      <a class="header__logo" href="/">
         <img src="images/logo.svg" alt="">
       </a>
       <nav class="header__nav">
         <ul class="header__list">
           <li>
-            <a class="header__link about desktop" href="#about">
+            <a class="header__link about" href="index.html#about">
               О нас
             </a>
           </li>
           <li>
-            <a class="header__link" href="#services">
+            <a class="header__link" href="index.html#services">
               Свечи
             </a>
           </li>
           <li>
-            <a class="header__link" href="#benefits">
+            <a class="header__link" href="index.html#benefits">
               Амулеты
             </a>
           </li>
           <li>
-            <a class="header__link" href="#command">
+            <a class="header__link" href="index.html#command">
               Травы
             </a>
           </li>
           <li>
-            <a class="header__link" href="#cases">
+            <a class="header__link" href="index.html#cases">
               Браслеты
             </a>
           </li>
         </ul>
       </nav>
       <div class="header__right">
-        <a class="header__btn" href="https://web.whatsapp.com/" target="_blank">
+        <a class="header__btn non" href="https://web.whatsapp.com/" target="_blank">
           <span class="sr-only">Открыть ссылку на WhatsApp</span>
           <svg xmlns="http://www.w3.org/2000/svg" width="27" height="28" viewBox="0 0 27 28" fill="none">
             <g clip-path="url(#clip0_1_19)">
@@ -65,7 +65,7 @@
             </defs>
           </svg>
         </a>
-        <a class="header__btn" href="https://web.telegram.com/" target="_blank">
+        <a class="header__btn non" href="https://web.telegram.com/" target="_blank">
           <span class="sr-only">Открыть ссылку на Telegram</span>
           <svg xmlns="http://www.w3.org/2000/svg" width="25" height="20" viewBox="0 0 25 20" fill="none">
             <path
@@ -89,37 +89,59 @@
       </button>
     </div>
   </div>
-  <div class="header__mobile">
-    <nav class="header__nav mobile">
-      <a class="header__phone header__phone--mobile" href="tel:+73442142412">
-        <span class="sr-only">Открыть номер телефона</span>
-        <svg xmlns="http://www.w3.org/2000/svg" width="17" height="16" viewBox="0 0 17 16" fill="none">
-          <path
-              d="M6.70646 3.5441L7.13913 4.31939C7.5296 5.01904 7.37285 5.93687 6.75787 6.55185C6.75787 6.55186 6.75787 6.55186 6.75787 6.55186C6.75776 6.55197 6.01201 7.29792 7.36441 8.65031C8.71617 10.0021 9.46208 9.25763 9.46286 9.25685C9.46288 9.25683 9.46287 9.25684 9.4629 9.25682C10.0779 8.64186 10.9957 8.48513 11.6953 8.87559L12.4706 9.30826C13.5271 9.89787 13.6519 11.3795 12.7232 12.3081C12.1652 12.8661 11.4817 13.3003 10.726 13.329C9.45391 13.3772 7.29358 13.0552 5.12653 10.8882C2.95948 8.72114 2.63754 6.56081 2.68576 5.28871C2.71441 4.53306 3.1486 3.84948 3.7066 3.29148C4.63523 2.36284 6.11685 2.48761 6.70646 3.5441Z"
-              stroke="#575D74" stroke-width="1.44167" stroke-linecap="round"/>
-        </svg>
-        +7 (344) 214 24 12
-      </a>
-      <ul class="header__list">
-        <li>
-          <a class="header__link mobile" href="#services">Услуги</a>
-        </li>
-        <li>
-          <a class="header__link mobile" href="#benefits">Преимущества</a>
-        </li>
-        <li>
-          <a class="header__link mobile" href="#command">Команда</a>
-        </li>
-        <li>
-          <a class="header__link mobile" href="#cases">Кейсы</a>
-        </li>
-        <li>
-          <a class="header__link mobile" href="#contacts">Контакты</a>
-        </li>
-      </ul>
-    </nav>
-  </div>
 </header>
+<div class="header__mobile">
+  <div class="header__right mobile">
+    <a class="header__btn" href="https://web.whatsapp.com/" target="_blank">
+      <span class="sr-only">Открыть ссылку на WhatsApp</span>
+      <svg xmlns="http://www.w3.org/2000/svg" width="27" height="28" viewBox="0 0 27 28" fill="none">
+        <g clip-path="url(#clip0_1_19)">
+          <path fill-rule="evenodd" clip-rule="evenodd"
+                d="M21.3584 19.5635C21.033 20.4844 19.7397 21.2463 18.7083 21.4692C18.0023 21.6191 17.0815 21.7376 13.9792 20.4521C10.4949 19.0085 5.6565 13.8663 5.6565 10.4444C5.6565 8.70236 6.6609 6.67388 8.41725 6.67388C9.26235 6.67388 9.44865 6.69036 9.72675 7.35745C10.0521 8.14339 10.8459 10.0798 10.9404 10.2783C11.3306 11.0926 10.5435 11.5693 9.97244 12.2782C9.79019 12.4916 9.58366 12.7223 9.81451 13.1193C10.044 13.5083 10.8378 14.802 12.0042 15.8404C13.5108 17.1827 14.7325 17.6113 15.1699 17.7936C15.4953 17.9286 15.8841 17.8972 16.1217 17.6433C16.4228 17.3178 16.7967 16.7779 17.1774 16.2458C17.446 15.865 17.7876 15.8174 18.1454 15.9525C18.387 16.0362 21.4582 17.4625 21.5878 17.6907C21.6837 17.8569 21.6837 18.6425 21.3584 19.5635ZM13.5027 0.5H13.4959C6.05339 0.5 0 6.55522 0 14C0 16.952 0.951759 19.6907 2.57041 21.9121L0.888306 26.9285L6.07636 25.2707C8.21071 26.6832 10.7581 27.5 13.5027 27.5C20.9452 27.5 27 21.4448 27 14C27 6.55522 20.9452 0.5 13.5027 0.5Z"
+                fill="black"/>
+        </g>
+        <defs>
+          <clipPath id="clip0_1_19">
+            <rect width="27" height="27" fill="white" transform="translate(0 0.5)"/>
+          </clipPath>
+        </defs>
+      </svg>
+    </a>
+    <a class="header__btn" href="https://web.telegram.com/" target="_blank">
+      <span class="sr-only">Открыть ссылку на Telegram</span>
+      <svg xmlns="http://www.w3.org/2000/svg" width="25" height="20" viewBox="0 0 25 20" fill="none">
+        <path
+            d="M24.1001 1.8203L20.5789 18.7928C20.313 19.9904 19.6204 20.2885 18.6362 19.7246L13.2706 15.6836L10.682 18.2289C10.3953 18.5219 10.1561 18.7663 9.60355 18.7663L9.98942 13.1818L19.933 3.9984C20.3655 3.60486 19.8388 3.38594 19.2612 3.78033L6.96827 11.692L1.67604 9.9986C0.525084 9.63146 0.504248 8.82224 1.91606 8.25748L22.6158 0.106445C23.5742 -0.260688 24.4126 0.323658 24.1001 1.8203Z"
+            fill="#0A0606"/>
+      </svg>
+    </a>
+  </div>
+  <a class="header__phone mobile" href="tel:+79823459823">+7 (982) 345 98-23 </a>
+  <nav class="header__nav mobile">
+    <ul class="header__list">
+      <li>
+        <a class="header__link about" href="index.html#about">
+          О нас
+        </a>
+      </li>
+      <li>
+        <a class="header__link" href="index.html#candles">
+          Свечи
+        </a>
+      </li>
+      <li>
+        <a class="header__link" href="index.html#amulets">
+          Амулеты
+        </a>
+      </li>
+      <li>
+        <a class="header__link" href="index.html#bracelets">
+          Браслеты
+        </a>
+      </li>
+    </ul>
+  </nav>
+</div>
 <main class="main main--100vh">
   <section class="basket">
     <div class="container">

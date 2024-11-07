@@ -1,10 +1,17 @@
 .basket {
+  margin-top: 110px;
   padding-top: 64px;
+  @include r($desktop) {
+    margin-top: 95px;
+  }
   @include r($tablet) {
-    padding-top: 50px;
+    padding-top: 40px;
   }
   @include r($sm) {
-    padding-top: 40px;
+    padding-top: 30px;
+  }
+  @include r($phone) {
+    margin-top: 90px;
   }
 
   &:last-child {

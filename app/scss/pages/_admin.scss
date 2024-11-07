@@ -1,0 +1,115 @@
+.admin {
+  padding-bottom: 30px;
+
+  &__title {
+    margin-top: 60px;
+    font-size: 26px;
+    font-weight: 500;
+    margin-bottom: 12px;
+    @include r($tablet) {
+      font-size: 24px;
+    }
+    @include r($sm) {
+      font-size: 22px;
+      margin-top: 50px;
+    }
+    @media (max-width: 420px) {
+      font-size: 20px;
+    }
+  }
+
+  &__subtitle {
+    font-size: 22px;
+    font-weight: 500;
+    margin-bottom: 20px;
+    @include r($sm) {
+      font-size: 20px;
+      margin-bottom: 17px;
+    }
+    @include r($phone) {
+      font-size: 18px;
+    }
+  }
+
+  &__logout {
+    display: block;
+    max-width: max-content;
+    color: #9f0202;
+    font-size: 16px;
+    padding-bottom: 3px;
+    border-bottom: 2px solid transparent;
+    transition: color .4s, border .4s;
+    margin-bottom: 20px;
+    @include r($phone) {
+      font-size: 15px;
+    }
+
+    &:hover {
+      color: red;
+    }
+
+    &:focus {
+      color: darkred;
+      border-bottom-color: darkred;
+    }
+  }
+
+  &__buttons {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    @media (max-width: 430px) {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 15px;
+    }
+  }
+
+  &__list {
+    @include flex-column(50);
+    margin-top: 50px;
+  }
+
+  &__subitems {
+    display: grid;
+    grid-gap: 25px;
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  &__name {
+    font-size: 24px;
+    font-weight: 500;
+    margin-bottom: 14px;
+  }
+
+  &__subitem {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 18px;
+    background-color: #1f1f1f;
+    border-radius: 10px;
+    font-size: 18px;
+  }
+
+  &__position {
+    font-size: 18px;
+    color: rgba(255, 255, 255, .8);
+    margin-bottom: 15px;
+  }
+
+  &__empty {
+    font-size: 18px;
+    color: rgba(255, 255, 255, .7);
+  }
+
+  &__create {
+    color: $white;
+    font-size: 17px;
+    padding: 16px 22px;
+    border-radius: 5px;
+    background-color: #165616;
+    border: 1px solid transparent;
+    transition: background-color .4s, color .4s, border .4s;
+  }
+}

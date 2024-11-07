@@ -31,9 +31,6 @@
     @include r($phone) {
       gap: 16px;
     }
-    @media (max-width: 400px) {
-      gap: 13px;
-    }
   }
 
   &__logo {
@@ -50,7 +47,7 @@
     }
 
     @media (max-width: 380px) {
-      margin-right: 13px;
+      margin-right: 10px;
     }
 
     img {
