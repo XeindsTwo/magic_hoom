@@ -1,0 +1,151 @@
+@include('components/_head.html', {
+title: 'Админ панель | Главная'
+})
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+<style>
+  * {
+    color: #fff;
+  }
+
+  input {
+    color: inherit;
+  }
+
+  .admin__item-actions {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-top: 20px;
+  }
+
+  .admin__item-edit {
+    color: #af8027;
+    font-size: 16px;
+    transition: color .4s;
+  }
+
+  .admin__item-edit:hover {
+    color: #e5a52e;
+  }
+
+  .admin__item-delete {
+    color: #ce2b2b;
+    font-size: 16px;
+    transition: color .4s;
+  }
+
+  .admin__item-delete:hover {
+    color: #ff3333;
+  }
+</style>
+
+<main>
+  <section class="admin" style="color: #fff">
+    <div class="container">
+      <a class="authorization__link admin" href="/">
+        <img src="../images/logo.svg" alt="logo">
+      </a>
+      <h1 class="admin__title">Главная страница админ-панели</h1>
+      <a class="admin__logout" href="functions/logout.php?logout=1">Выйти из аккаунта</a>
+      <button class="admin__create" id="openAddModal">Добавить подраздел</button>
+      <ul class="admin__list">
+        <div class="admin__item" data-section-id="1">
+          <p class="admin__name">Свечи</p>
+          <p class="admin__empty">На данный момент нет созданных подразделов</p>
+        </div>
+        <div class="admin__item" data-section-id="2">
+          <p class="admin__name">Амулеты</p>
+          <ul class="admin__subitems">
+            <li class="admin__subitem" data-subsection-id="19" data-full-name="sava verc" data-short-name="ver" data-position="1" data-section-id="2">
+              <p class="admin__position">Позиция - 1</p>
+              <p class="admin__item-name">Полное имя - sava verc</p>
+              <p class="admin__short-title">Сокращённое имя - ver</p>
+              <div class="admin__item-actions">
+                <button class="admin__item-edit">Редактировать</button>
+                <button class="admin__item-delete">Удалить</button>
+              </div>
+            </li>
+            <li class="admin__subitem" data-subsection-id="21" data-full-name="Mercedes" data-short-name="Mers" data-position="2" data-section-id="2">
+              <p class="admin__position">Позиция - 2</p>
+              <p class="admin__item-name">Полное имя - Mercedes</p>
+              <p class="admin__short-title">Сокращённое имя - Mers</p>
+              <div class="admin__item-actions">
+                <button class="admin__item-edit">Редактировать</button>
+                <button class="admin__item-delete">Удалить</button>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div class="admin__item" data-section-id="3">
+          <p class="admin__name">Травы</p>
+          <p class="admin__empty">На данный момент нет созданных подразделов</p>
+        </div>
+        <div class="admin__item" data-section-id="4">
+          <p class="admin__name">Браслеты</p>
+          <p class="admin__empty">На данный момент нет созданных подразделов</p>
+        </div>
+      </ul>
+    </div>
+  </section>
+</main>
+<div id="addSubsectionModal" class="modal">
+  <button class="modal__close closeAddModal" type="button">
+    <span class="sr-only">Закрыть модальное окно</span>
+  </button>
+  <div class="modal__content">
+    <h3 class="modal__title">Добавление подраздела</h3>
+    <ul class="modal__list">
+      <li>
+        <label class="label" for="sectionSelect">Выберите раздел:</label>
+        <select class="input input--admin" id="sectionSelect"></select>
+      </li>
+      <li>
+        <label class="label" for="subsectionTitle">Название подраздела:</label>
+        <input class="input input--admin" type="text" id="subsectionTitle" required>
+      </li>
+      <li>
+        <label class="label" for="subsectionShortTitle">Короткое название:</label>
+        <input class="input input--admin" type="text" id="subsectionShortTitle" required>
+      </li>
+    </ul>
+    <div class="admin__buttons">
+      <button id="addSubsectionButton">Добавить</button>
+      <button class="closeAddModal">Закрыть</button>
+    </div>
+  </div>
+</div>
+<div id="editSubsectionModal" class="modal">
+  <button class="modal__close closeEditModal" type="button">
+    <span class="sr-only">Закрыть окно редактирования</span>
+  </button>
+  <div class="modal__content">
+    <h3 class="modal__title">Редактирование подраздела</h3>
+    <input type="hidden" id="editSubsectionId">
+    <ul class="modal__list">
+      <li>
+        <label class="label" for="editSectionSelect">Выберите раздел:</label>
+        <select class="input input--admin" id="editSectionSelect">
+          <?php foreach ($sections as $section): ?>
+          <option value="<?= $section['id'] ?>"><?= htmlspecialchars($section['name']) ?></option>
+          <?php endforeach; ?>
+        </select>
+      </li>
+      <li>
+        <label class="label" for="editSubsectionTitle">Название подраздела:</label>
+        <input class="input input--admin" type="text" id="editSubsectionTitle" required>
+      </li>
+      <li>
+        <label class="label" for="editSubsectionShortTitle">Короткое название:</label>
+        <input class="input input--admin" type="text" id="editSubsectionShortTitle" required>
+      </li>
+    </ul>
+    <div class="admin__buttons">
+      <button id="saveSubsectionChanges">Сохранить изменения</button>
+      <button class="closeEditModal">Отмена</button>
+    </div>
+  </div>
+</div>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+<script type="module" src="../js/subsections/subsections.js"></script>
+</body>
+</html>
