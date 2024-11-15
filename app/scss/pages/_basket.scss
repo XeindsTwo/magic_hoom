@@ -1,6 +1,10 @@
 .basket {
   margin-top: 110px;
   padding-top: 64px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
+  position: relative;
   @include r($desktop) {
     margin-top: 95px;
   }
@@ -12,6 +16,12 @@
   }
   @include r($phone) {
     margin-top: 90px;
+  }
+
+  &.active {
+    opacity: 1;
+    visibility: visible;
+    position: relative;
   }
 
   &:last-child {
@@ -465,4 +475,28 @@
       }
     }
   }
+
+  &__empty-message {
+    color: $white;
+    margin-top: 60px;
+    line-height: 1.4;
+    @include r($lg) {
+      font-size: 18px;
+    }
+    @include r($tablet) {
+      margin-top: 50px;
+      font-size: 17px;
+    }
+    @include r($phone) {
+      max-width: 340px;
+    }
+  }
+}
+
+.checkout-section {
+  display: none;
+}
+
+.checkout-section.active {
+  display: block;
 }

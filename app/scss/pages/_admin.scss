@@ -1,20 +1,25 @@
 .admin {
+  color: $white;
   padding-bottom: 30px;
 
   &__title {
     margin-top: 60px;
-    font-size: 26px;
+    font-size: 28px;
     font-weight: 500;
-    margin-bottom: 12px;
+    margin-bottom: 22px;
     @include r($tablet) {
-      font-size: 24px;
+      font-size: 26px;
     }
     @include r($sm) {
-      font-size: 22px;
+      font-size: 24px;
       margin-top: 50px;
     }
-    @media (max-width: 420px) {
-      font-size: 20px;
+    @media (max-width: 460px) {
+      font-size: 22px;
+    }
+
+    &.bottom {
+      margin-bottom: 50px;
     }
   }
 
@@ -34,23 +39,20 @@
   &__logout {
     display: block;
     max-width: max-content;
-    color: #9f0202;
+    color: #c00000;
     font-size: 16px;
     padding-bottom: 3px;
     border-bottom: 2px solid transparent;
     transition: color .4s, border .4s;
     margin-bottom: 20px;
-    @include r($phone) {
-      font-size: 15px;
-    }
 
     &:hover {
       color: red;
     }
 
     &:focus {
-      color: darkred;
-      border-bottom-color: darkred;
+      color: red;
+      border-bottom-color: red;
     }
   }
 
@@ -70,16 +72,32 @@
     margin-top: 50px;
   }
 
+  &__name {
+    font-size: 26px;
+    font-weight: 500;
+    margin-bottom: 14px;
+    @include r($lg) {
+      font-size: 24px;
+    }
+    @include r($sm) {
+      font-size: 22px;
+    }
+    @include r($phone) {
+      font-size: 20px;
+    }
+  }
+
   &__subitems {
     display: grid;
     grid-gap: 25px;
     grid-template-columns: repeat(3, 1fr);
-  }
-
-  &__name {
-    font-size: 24px;
-    font-weight: 500;
-    margin-bottom: 14px;
+    @media (max-width: 1040px) {
+      grid-template-columns: repeat(2, 1fr);
+      grid-gap: 15px;
+    }
+    @media (max-width: 580px) {
+      grid-template-columns: repeat(1, 1fr);
+    }
   }
 
   &__subitem {
@@ -90,26 +108,111 @@
     background-color: #1f1f1f;
     border-radius: 10px;
     font-size: 18px;
+    @media (max-width: 1040px) {
+      font-size: 16px;
+      gap: 12px;
+    }
+
+    &-actions {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      margin-top: 20px;
+      margin-left: -3px;
+    }
+
+    &-edit, &-delete {
+      font-size: 16px;
+      border: 1px solid transparent;
+      border-radius: 6px;
+      padding: 2px 3px;
+      transition: color .4s, border .4s;
+
+      &:focus {
+        border-color: inherit;
+      }
+    }
+
+    &-edit {
+      color: #af8027;
+
+      &:hover {
+        color: #e5a52e;
+      }
+    }
+
+    &-delete {
+      color: #ce2b2b;
+
+      &:hover {
+        color: #ff3333;
+      }
+    }
+  }
+
+  &__product-image {
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 10px;
+    margin-bottom: 15px;
   }
 
   &__position {
     font-size: 18px;
     color: rgba(255, 255, 255, .8);
     margin-bottom: 15px;
+    @media (max-width: 650px) {
+      font-size: 16px;
+      margin-bottom: 12px;
+    }
   }
 
   &__empty {
     font-size: 18px;
+    line-height: 1.4;
     color: rgba(255, 255, 255, .7);
+    @include r($sm) {
+      font-size: 16px;
+    }
   }
 
   &__create {
+    @include flex-align-center(0);
+    max-width: max-content;
     color: $white;
     font-size: 17px;
     padding: 16px 22px;
     border-radius: 5px;
     background-color: #165616;
-    border: 1px solid transparent;
+    border: 2px solid transparent;
     transition: background-color .4s, color .4s, border .4s;
+    @include r($lg) {
+      padding: 14px 20px;
+    }
+    @include r($tablet) {
+      font-size: 16px;
+    }
+    @include r($sm) {
+      padding: 13px 18px;
+    }
+    @include r($phone) {
+      font-size: 15px;
+    }
+
+    &:hover {
+      background-color: $white;
+      color: $black;
+    }
+
+    &:focus {
+      background-color: transparent;
+      border-color: #1f9b1f;
+      color: $white;
+    }
+
+    &.bottom {
+      margin-bottom: 60px;
+    }
   }
 }

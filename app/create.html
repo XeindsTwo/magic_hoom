@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html class="html" lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta http-equiv="content-type" content="public, max-age=3600">
+  <meta name="theme-color" content="#fff">
+  <title>Админ панель | Создание товара</title>
+  <link rel="shortcut icon" href="images/icons/favicon.svg" type="image/x-icon">
+  <link rel="stylesheet" href="css/style.min.css">
+</head>
+<body class="body">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/choices.js/public/assets/styles/choices.min.css">
+<link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+<header class="header static">
+  <div class="container">
+    <div class="header__inner">
+      <nav class="header__nav" style="margin-left: 0">
+        <ul class="header__list">
+          <li>
+            <a class="header__link" href="../">Управление подразделами</a>
+          </li>
+          <li>
+            <a class="header__link" href="../products/">Управление товарами</a>
+          </li>
+          <li>
+            <a class="header__link" href="">Управление заказами</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</header>
+<main>
+  <section class="admin admin-create">
+    <div class="container">
+      <div class="admin-create__form">
+        <h1 class="admin__title">Добавление нового товара</h1>
+        <form action="create.php" method="POST" enctype="multipart/form-data">
+          <ul class="admin-create__list">
+            <li class="admin-create__item">
+              <label class="label" for="name">Название товара:</label>
+              <input class="input input--admin" type="text" name="name" id="name" required="">
+            </li>
+            <li class="admin-create__item">
+              <label class="label" for="price">Цена товара:</label>
+              <input class="input input--admin" type="number" name="price" id="price" required="">
+            </li>
+            <li class="admin-create__item">
+              <label class="label" for="description">Описание товара:</label>
+              <input name="description" id="description" type="hidden">
+              <div id="editor-container" style="height: 280px; font-size: 17px"></div>
+            </li>
+            <li class="admin-create__item">
+              <label class="label" for="image">Изображение товара:</label>
+              <div class="custom-file-input">
+                <input type="file" name="image" id="image" accept="image/*" style="display: none;">
+                <span>Выберите изображение</span>
+                <div id="image-preview" class="image-preview"></div>
+              </div>
+            </li>
+            <li>
+              <label class="label" for="subsections">Выберите подразделы:</label>
+              <select id="subsections" multiple="">
+                <optgroup label="Амулеты">
+                  <option value="64">Мерседес</option>
+                  <option value="55">Морф</option>
+                  <option value="65">Новогодние</option>
+                  <option value="57">Самуэль</option>
+                </optgroup>
+                <optgroup label="Браслеты">
+                </optgroup>
+                <optgroup label="Свечи">
+                  <option value="70">Барин</option>
+                  <option value="71">Король и Шут</option>
+                </optgroup>
+                <optgroup label="Травы">
+                  <option value="69">Парам</option>
+                </optgroup>
+              </select>
+            </li>
+          </ul>
+          <button class="admin__create" type="submit">Добавить товар</button>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+<script src="https://cdn.jsdelivr.net/npm/choices.js/public/assets/scripts/choices.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+<script src="https://cdn.quilljs.com/1.3.6/quill.min.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    new Choices('#subsections', {
+      removeItemButton: true,
+      searchEnabled: true,
+      shouldSort: false,
+      placeholder: true,
+      placeholderValue: 'Выберите подразделы'
+    });
+
+    const quill = new Quill('#editor-container', {
+      theme: 'snow',
+      modules: {
+        toolbar: [
+          ['bold', 'italic', 'underline'],
+          [{'list': 'ordered'}, {'list': 'bullet'}],
+          [{'header': [1, 2, false]}],
+          ['blockquote']
+        ]
+      }
+    });
+
+    const imageInput = document.getElementById('image');
+    const imagePreview = document.getElementById('image-preview');
+    const fileLabel = document.querySelector('.custom-file-input span');
+    let imageSelected = false;
+    let previousImageUrl = '';
+    let lastFile = null;
+
+    document.querySelector('.custom-file-input').addEventListener('click', function () {
+      imageInput.click();
+    });
+
+    imageInput.addEventListener('change', function () {
+      const file = imageInput.files[0];
+
+      if (!file) {
+        if (previousImageUrl) {
+          imagePreview.style.backgroundImage = `url(${previousImageUrl})`;
+          imagePreview.style.display = 'block';
+          fileLabel.style.display = 'none';
+          imageSelected = true;
+        } else {
+          imagePreview.style.display = 'none';
+          fileLabel.style.display = 'block';
+          imageSelected = false;
+        }
+        return;
+      }
+
+      if (!file.type.startsWith('image/')) {
+        showToast("Пожалуйста, выберите изображение", "red");
+        imageInput.value = '';
+        imagePreview.style.display = 'none';
+        fileLabel.style.display = 'block';
+        imageSelected = false;
+        lastFile = null;
+        return;
+      }
+
+      if (file.size > 5 * 1024 * 1024) {
+        showToast("Размер файла не должен превышать 5MB", "red");
+        imageInput.value = '';
+        imagePreview.style.display = 'none';
+        fileLabel.style.display = 'block';
+        imageSelected = false;
+        lastFile = null;
+        return;
+      }
+
+      const reader = new FileReader();
+      reader.onload = function (e) {
+        previousImageUrl = e.target.result;
+        imagePreview.style.backgroundImage = `url(${previousImageUrl})`;
+        imagePreview.style.display = 'block';
+        fileLabel.style.display = 'none';
+        imageSelected = true;
+        lastFile = file;
+      };
+      reader.readAsDataURL(file);
+    });
+
+    function showToast(message, color) {
+      Toastify({
+        text: message,
+        backgroundColor: color,
+        style: {
+          fontSize: "17px",
+          boxShadow: "none"
+        },
+        duration: 3000
+      }).showToast();
+    }
+
+    document.getElementById('productForm').addEventListener('submit', async function (e) {
+      e.preventDefault();
+
+      const name = document.getElementById('name').value.trim();
+      const price = document.getElementById('price').value.trim();
+      const description = document.getElementById('description');
+      const subsections = document.getElementById('subsections').selectedOptions;
+
+      description.value = quill.root.innerHTML.trim();
+
+      if (!name) {
+        showToast("Пожалуйста, введите название товара", "red");
+        return;
+      }
+
+      if (!price) {
+        showToast("Пожалуйста, укажите цену товара", "red");
+        return;
+      }
+
+      const editorContent = quill.root.innerHTML.trim();
+      if (!editorContent || editorContent === "<p><br></p>") {
+        showToast("Пожалуйста, добавьте описание товара", "red");
+        return;
+      }
+
+      if (!imageInput.files[0] && !lastFile) {
+        showToast("Пожалуйста, выберите изображение для товара", "red");
+        return;
+      }
+
+      const formData = new FormData(this);
+
+      if (!imageInput.files[0] && lastFile) {
+        formData.append('image', lastFile);
+      }
+
+      if (subsections.length === 0) {
+        showToast("Пожалуйста, выберите хотя бы один подраздел", "red");
+        return;
+      }
+
+      try {
+        const response = await fetch('create_product.php', {
+          method: 'POST',
+          body: formData
+        });
+        const result = await response.json();
+
+        if (result.success) {
+          showToast(result.message, "green");
+
+          document.getElementById('name').value = '';
+          document.getElementById('price').value = '';
+          document.getElementById('description').value = '';
+          document.getElementById('image').value = '';
+          document.getElementById('subsections').selectedIndex = -1;
+
+          imagePreview.style.backgroundImage = '';
+          imagePreview.style.display = 'none';
+          fileLabel.style.display = 'block';
+          imageSelected = false;
+          previousImageUrl = '';
+          lastFile = null;
+
+          setTimeout(function () {
+            window.location.href = '/php/products/';
+          }, 800);
+        } else {
+          showToast(result.message, "red");
+        }
+      } catch (error) {
+        console.error('Ошибка:', error);
+        showToast("Произошла ошибка при добавлении товара", "red");
+      }
+    });
+  });
+</script>
+</body>
+</html>

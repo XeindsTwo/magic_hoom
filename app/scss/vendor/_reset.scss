@@ -79,6 +79,6 @@ input:-webkit-autofill:active {
   -webkit-text-fill-color: #ffffff;
 }
 
-svg, path, g, circle, rect {
+svg, path, g, circle, rect, line, polygon {
   transition: all .4s;
 }

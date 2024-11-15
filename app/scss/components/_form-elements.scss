@@ -43,8 +43,12 @@
   &--admin {
     font-size: 16px;
     padding: 20px 16px;
+    @include r($tablet) {
+      padding: 17px 14px;
+    }
     @include r($phone) {
       font-size: 15px;
+      padding: 16px 14px;
     }
   }
 
@@ -55,13 +59,21 @@
       color: $red;
     }
   }
+
+  &.textarea {
+    min-height: 180px;
+    resize: none;
+  }
 }
 
 .label {
   display: block;
   color: $white;
   font-size: 16px;
-  margin-bottom: 3px;
+  margin-bottom: 4px;
+  @include r($phone) {
+    font-size: 15px;
+  }
 }
 
 .error {
@@ -76,5 +88,43 @@
 
   &.admin {
     font-size: 16px;
+  }
+}
+
+.quantity {
+  * {
+    color: $white;
+  }
+
+  &-selector {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #fff;
+    padding: 14px 25px;
+  }
+
+  &-input {
+    max-width: 90px;
+    text-align: center;
+  }
+}
+
+@include r($phone) {
+  .toastify {
+    max-width: 320px;
+  }
+}
+
+#editor-container {
+  height: 280px;
+  font-size: 17px;
+
+  @include r($sm) {
+    font-size: 16px;
+  }
+
+  @include r($phone) {
+    font-size: 15px;
   }
 }

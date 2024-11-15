@@ -22,33 +22,6 @@
   input {
     color: inherit;
   }
-
-  .admin__item-actions {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    margin-top: 20px;
-  }
-
-  .admin__item-edit {
-    color: #af8027;
-    font-size: 16px;
-    transition: color .4s;
-  }
-
-  .admin__item-edit:hover {
-    color: #e5a52e;
-  }
-
-  .admin__item-delete {
-    color: #ce2b2b;
-    font-size: 16px;
-    transition: color .4s;
-  }
-
-  .admin__item-delete:hover {
-    color: #ff3333;
-  }
 </style>
 
 <main>
@@ -72,18 +45,36 @@
               <p class="admin__position">Позиция - 1</p>
               <p class="admin__item-name">Полное имя - sava verc</p>
               <p class="admin__short-title">Сокращённое имя - ver</p>
-              <div class="admin__item-actions">
-                <button class="admin__item-edit">Редактировать</button>
-                <button class="admin__item-delete">Удалить</button>
+              <div class="admin__subitem-actions">
+                <button class="admin__subitem-edit">Редактировать</button>
+                <button class="admin__subitem-delete">Удалить</button>
               </div>
             </li>
             <li class="admin__subitem" data-subsection-id="21" data-full-name="Mercedes" data-short-name="Mers" data-position="2" data-section-id="2">
               <p class="admin__position">Позиция - 2</p>
               <p class="admin__item-name">Полное имя - Mercedes</p>
               <p class="admin__short-title">Сокращённое имя - Mers</p>
-              <div class="admin__item-actions">
-                <button class="admin__item-edit">Редактировать</button>
-                <button class="admin__item-delete">Удалить</button>
+              <div class="admin__subitem-actions">
+                <button class="admin__subitem-edit">Редактировать</button>
+                <button class="admin__subitem-delete">Удалить</button>
+              </div>
+            </li>
+            <li class="admin__subitem" data-subsection-id="19" data-full-name="sava verc" data-short-name="ver" data-position="1" data-section-id="2">
+              <p class="admin__position">Позиция - 1</p>
+              <p class="admin__item-name">Полное имя - sava verc</p>
+              <p class="admin__short-title">Сокращённое имя - ver</p>
+              <div class="admin__subitem-actions">
+                <button class="admin__subitem-edit">Редактировать</button>
+                <button class="admin__subitem-delete">Удалить</button>
+              </div>
+            </li>
+            <li class="admin__subitem" data-subsection-id="21" data-full-name="Mercedes" data-short-name="Mers" data-position="2" data-section-id="2">
+              <p class="admin__position">Позиция - 2</p>
+              <p class="admin__item-name">Полное имя - Mercedes</p>
+              <p class="admin__short-title">Сокращённое имя - Mers</p>
+              <div class="admin__subitem-actions">
+                <button class="admin__subitem-edit">Редактировать</button>
+                <button class="admin__subitem-delete">Удалить</button>
               </div>
             </li>
           </ul>
@@ -120,13 +111,13 @@
         <input class="input input--admin" type="text" id="subsectionShortTitle" required>
       </li>
     </ul>
-    <div class="admin__buttons">
-      <button id="addSubsectionButton">Добавить</button>
-      <button class="closeAddModal">Закрыть</button>
+    <div class="modal__buttons">
+      <button class="modal__btn close closeAddModal">Закрыть</button>
+      <button class="modal__btn" id="addSubsectionButton">Добавить</button>
     </div>
   </div>
 </div>
-<div id="editSubsectionModal" class="modal">
+<div class="modal active" id="editSubsectionModal">
   <button class="modal__close closeEditModal" type="button">
     <span class="sr-only">Закрыть окно редактирования</span>
   </button>
@@ -151,9 +142,9 @@
         <input class="input input--admin" type="text" id="editSubsectionShortTitle" required>
       </li>
     </ul>
-    <div class="admin__buttons">
-      <button id="saveSubsectionChanges">Сохранить изменения</button>
-      <button class="closeEditModal">Отмена</button>
+    <div class="modal__buttons long">
+      <button class="modal__btn close closeEditModal">Отмена</button>
+      <button class="modal__btn" id="saveSubsectionChanges">Сохранить изменения</button>
     </div>
   </div>
 </div>
